@@ -30,7 +30,7 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'Interpolation {{ }} Interpolation' },
+    { type: 'heading', text: '{{ }} Interpolation' },
     { type: 'paragraph', text: 'Interpolation يُضمّن تعبير TypeScript في القالب كنص. الصياغة المزدوجة {{ }} تخبر Angular بتقييم التعبير وتحويل النتيجة إلى نص.' },
     {
       type: 'code',
