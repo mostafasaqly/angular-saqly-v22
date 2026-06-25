@@ -1,0 +1,43 @@
+<div class="app-layout">
+
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <button class="hamburger" (click)="toggleSidebar()" aria-label="فتح القائمة">☰</button>
+    <span class="topbar-title">كورس أنجولار v22</span>
+  </div>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div
+    class="sidebar-overlay"
+    [class.open]="sidebarOpen()"
+    (click)="toggleSidebar()"
+  ></div>
+
+  <!-- Sidebar -->
+  <app-sidebar
+    [sections]="allSections"
+    [activeId]="activeId()"
+    [completed]="completed()"
+    [total]="allSections.length"
+    [percent]="percent()"
+    [isAr]="isAr()"
+    [theme]="theme()"
+    [open]="sidebarOpen()"
+    (selectSection)="selectSection($event)"
+    (toggleTheme)="toggleTheme()"
+    (toggleLang)="toggleLang()"
+  />
+
+  <!-- Main -->
+  <main class="main-content">
+    <app-lesson-content
+      [section]="activeSection()"
+      [isAr]="isAr()"
+      [completed]="isCompleted()"
+      [note]="currentNote()"
+      (toggleComplete)="toggleComplete()"
+      (noteChange)="onNoteChange($event)"
+    />
+  </main>
+
+</div>
