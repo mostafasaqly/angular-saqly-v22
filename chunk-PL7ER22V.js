@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([authInterceptor, errorInterceptor])
     ),
   ]
-};`},{type:"tip",text:"withFetch() \u064A\u0633\u062A\u062E\u062F\u0645 Fetch API \u0627\u0644\u062D\u062F\u064A\u062B\u0629 \u0628\u062F\u0644\u0627\u064B \u0645\u0646 XMLHttpRequest \u2014 \u0623\u062F\u0627\u0621 \u0623\u0641\u0636\u0644\u060C \u0645\u062A\u0648\u0627\u0641\u0642 \u0645\u0639 SSR\u060C \u0648\u0623\u0633\u0631\u0639 \u0641\u064A \u0627\u0644\u062A\u0634\u063A\u064A\u0644."},{type:"heading",text:"GET \u2014 \u062C\u0644\u0628 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A"},{type:"code",code:`import { Injectable, inject } from '@angular/core';
+};`},{type:"tip",text:"withFetch() \u064A\u0633\u062A\u062E\u062F\u0645 Fetch API \u0627\u0644\u062D\u062F\u064A\u062B\u0629 \u0628\u062F\u0644\u0627\u064B \u0645\u0646 XMLHttpRequest \u2014 Performance \u0623\u0641\u0636\u0644\u060C \u0645\u062A\u0648\u0627\u0641\u0642 \u0645\u0639 SSR\u060C \u0648\u0623\u0633\u0631\u0639 \u0641\u064A \u0627\u0644\u062A\u0634\u063A\u064A\u0644."},{type:"heading",text:"GET \u2014 \u062C\u0644\u0628 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A"},{type:"code",code:`import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -99,7 +99,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
-// interceptor \u0627\u0644\u0645\u0635\u0627\u062F\u0642\u0629 \u2014 \u064A\u0636\u064A\u0641 Authorization header
+// interceptor Authentication \u2014 \u064A\u0636\u064A\u0641 Authorization header
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const token = localStorage.getItem('auth_token');
 
