@@ -479,17 +479,18 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px;
+  padding: 10px 16px;
   background: #161b22;
   border-bottom: 1px solid #30363d;
 }
 
 .code-lang {
-  font-size: 11px;
-  color: #8b949e;
-  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9d1d9;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .copy-btn {
@@ -510,9 +511,9 @@ html, body {
 .code-block pre {
   padding: 16px 18px;
   overflow-x: auto;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 13px;
-  line-height: 1.7;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.75;
   color: #e6edf3;
   margin: 0;
 }
