@@ -99,10 +99,6 @@ export default {
       items: [
         'angular.dev — التوثيق الرسمي (يُحدَّث مع كل إصدار)',
         'Angular Blog على blog.angular.dev — آخر الأخبار والميزات',
-        'Josh Morony على YouTube — محتوى متقدم حول Signals وAngular الحديث',
-        'Kevin Kreuzer — مقالات متعمقة في Angular Architecture',
-        'Angular University (udemy) — دورات متقدمة في RxJS وAngular',
-        'Angular Discord Server — أسئلة ومساعدة من المجتمع',
         'Twitter/X: @angular للإعلانات الرسمية',
       ],
     },
@@ -202,10 +198,6 @@ export default {
       items: [
         'angular.dev — official documentation (updated with every release)',
         'Angular Blog at blog.angular.dev — latest news and features',
-        'Josh Morony on YouTube — advanced content on Signals and modern Angular',
-        'Kevin Kreuzer — in-depth articles on Angular Architecture',
-        'Angular University (Udemy) — advanced courses in RxJS and Angular',
-        'Angular Discord Server — questions and community support',
         'Twitter/X: @angular for official announcements',
       ],
     },
