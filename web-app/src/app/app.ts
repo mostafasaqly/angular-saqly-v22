@@ -1,8 +1,10 @@
 import {
-  Component, OnInit, inject, computed, signal,
+  Component, inject, computed, signal,
   ChangeDetectionStrategy, effect,
 } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { sections } from '../data/sections';
 import { SidebarComponent } from './components/sidebar';
 import { ProgressService } from './services/progress.service';
@@ -19,12 +21,16 @@ export class App {
   protected readonly progress = inject(ProgressService);
   private  readonly router    = inject(Router);
 
-  readonly allSections  = sections;
-  readonly sidebarOpen  = signal(false);
+  readonly allSections = sections;
+  readonly sidebarOpen = signal(false);
+
+  private readonly navEnd = toSignal(
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)),
+  );
 
   readonly activeId = computed(() => {
-    const url = this.router.url;
-    const m   = url.match(/section\/(\d+)/);
+    this.navEnd();
+    const m = this.router.url.match(/section\/(\d+)/);
     return m ? Number(m[1]) : 1;
   });
 
