@@ -12,7 +12,6 @@ export default {
     'بناء التطبيق للإنتاج',
     'المتغيرات البيئية في Angular',
     'النشر على Firebase Hosting',
-    'النشر على Vercel',
     'النشر على Netlify',
     'نشر SSR على VPS (Node.js)',
     'إعداد CI/CD مع GitHub Actions',
@@ -22,7 +21,6 @@ export default {
     'Building for Production',
     'Environment Variables in Angular',
     'Deploy to Firebase Hosting',
-    'Deploy to Vercel',
     'Deploy to Netlify',
     'Deploy SSR to VPS (Node.js)',
     'CI/CD with GitHub Actions',
@@ -106,32 +104,6 @@ ng build && firebase deploy --only hosting
 # firebase deploy --only hosting           (للإنتاج)
 
 # نتيجة: رابط مجاني https://your-app.web.app`,
-    },
-
-    { type: 'heading', text: 'النشر على Vercel' },
-    {
-      type: 'code',
-      code: `# الطريقة الأسرع: ربط GitHub مباشرةً
-# 1. اذهب لـ vercel.com → New Project
-# 2. استورد مستودع GitHub
-# 3. Vercel يكتشف Angular تلقائياً وضبط:
-#    Build Command: ng build
-#    Output Directory: dist/my-app/browser
-
-# أو باستخدام CLI
-npm install -g vercel
-vercel
-
-# للنشر المستمر (Continuous Deployment):
-# كل push لـ main → نشر تلقائي
-# كل Pull Request → معاينة على رابط مؤقت
-
-# vercel.json — إعدادات SPA routing
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}`,
     },
 
     { type: 'heading', text: 'إعداد CI/CD مع GitHub Actions' },
@@ -275,32 +247,6 @@ firebase init hosting
 ng build && firebase deploy --only hosting
 
 # Result: free URL https://your-app.web.app`,
-    },
-
-    { type: 'heading', text: 'Deploy to Vercel' },
-    {
-      type: 'code',
-      code: `# Fastest method: link GitHub directly
-# 1. Go to vercel.com → New Project
-# 2. Import GitHub repository
-# 3. Vercel auto-detects Angular and configures:
-#    Build Command: ng build
-#    Output Directory: dist/my-app/browser
-
-# Or using CLI
-npm install -g vercel
-vercel
-
-# Continuous Deployment:
-# Every push to main → automatic deploy
-# Every Pull Request → preview on a temporary URL
-
-# vercel.json — SPA routing
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}`,
     },
 
     { type: 'heading', text: 'CI/CD with GitHub Actions' },
