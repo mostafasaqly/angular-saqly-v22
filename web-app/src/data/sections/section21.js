@@ -1,7 +1,7 @@
-// Section 21 — AI Tooling and Developer Experience
+﻿// Section 21 — AI Tooling and Developer Experience
 export default {
   id: 21,
-  title: 'أدوات الذكاء الاصطناعي وتجربة المطوّر',
+  title: 'AI Tooling and Developer Experience',
   titleEn: 'AI Tooling and Developer Experience',
   level: 'مبتدئ – متوسط',
   levelEn: 'Beginner–Intermediate',
@@ -9,14 +9,14 @@ export default {
   introEn: 'AI has transformed how Angular is written. This section covers how to use tools like GitHub Copilot, Claude, and Cursor to speed up your development, and best practices for using them in Angular v22 projects.',
 
   lessons: [
-    'الذكاء الاصطناعي في تطوير Angular',
-    'GitHub Copilot — الإعداد والاستخدام',
-    'Claude في كتابة المكوّنات',
-    'Cursor IDE والـ AI-first workflow',
-    'كتابة Prompts فعّالة للكود Angular',
-    'توليد الاختبارات بالذكاء الاصطناعي',
-    'مراجعة الكود بالذكاء الاصطناعي',
-    'حدود الذكاء الاصطناعي في البرمجة',
+    'AI in Angular Development',
+    'GitHub Copilot — Setup and Usage',
+    'Claude for Writing Components',
+    'Cursor IDE and AI-First Workflow',
+    'Writing Effective Angular Prompts',
+    'Generating Tests with AI',
+    'AI Code Review',
+    'Limits of AI in Programming',
   ],
   lessonsEn: [
     'AI in Angular Development',
@@ -35,9 +35,9 @@ export default {
     {
       type: 'list',
       items: [
-        'توليد المكوّنات المتكررة (forms، cards، tables) بشكل أسرع',
+        'توليد Components المتكررة (forms، cards، tables) بشكل أسرع',
         'اقتراح أنماط Angular الحديثة (Signals، input()، inject())',
-        'كتابة الاختبارات الممّلة تلقائياً',
+        'كتابة Tests الممّلة تلقائياً',
         'شرح الكود المعقّد وأخطاء TypeScript',
         'إعادة الهيكلة (Refactoring) من أنماط قديمة للحديثة',
       ],
@@ -56,8 +56,8 @@ export default {
 - @for و@if (وليس *ngFor و*ngIf)
 
 المكوّن: ProductCardComponent
-المدخلات: product: Product، showRating: boolean (اختياري، افتراضي false)
-المخرجات: addToCart يُرسل Product
+Inputs: product: Product، showRating: boolean (اختياري، افتراضي false)
+Outputs: addToCart يُرسل Product
 
 النوع Product:
 interface Product {
@@ -73,7 +73,7 @@ interface Product {
 // "أنشئ مكوّن angular لعرض منتج"`,
     },
 
-    { type: 'heading', text: 'توليد الاختبارات بالذكاء الاصطناعي' },
+    { type: 'heading', text: 'توليد Tests بالذكاء الاصطناعي' },
     {
       type: 'code',
       code: `// مثال على Prompt لتوليد اختبارات:
@@ -85,13 +85,13 @@ interface Product {
 اكتب اختبارات لـ:
 1. العرض الأولي للمحتوى
 2. التفاعل مع المستخدم (الضغط على الأزرار)
-3. تغيير المدخلات وتحديث العرض
+3. تغيير Inputs وتحديث العرض
 4. حالات الحافة (مصفوفة فارغة، قيم null)
 
 استخدم data-testid للاستعلام عن العناصر
 */
 
-// نصيحة: راجع الاختبارات الناتجة — AI يُنشئ اختبارات
+// نصيحة: راجع Tests الناتجة — AI يُنشئ اختبارات
 // التنفيذ الداخلي أحياناً بدلاً من السلوك الخارجي`,
     },
 
@@ -102,7 +102,7 @@ interface Product {
         'AI لا يعرف متطلبات مشروعك الخاص — دائماً راجع الكود الناتج',
         'قد يُولّد أنماط Angular قديمة إذا لم تُوضّح الإصدار',
         'لا يفهم السياق التجاري — قد يُبسّط المنطق المعقّد',
-        'الاختبارات الناتجة قد تختبر التنفيذ لا السلوك — راجعها',
+        'Tests الناتجة قد تختبر التنفيذ لا السلوك — راجعها',
         'الثقة العمياء بـ AI تُنتج كوداً يعمل لكن لا يُصان',
         'الاستخدام الأمثل: AI يكتب، أنت تُراجع وتُفكّر',
       ],
@@ -131,7 +131,7 @@ ng update @angular/core @angular/cli
 ng build --stats-json
 npx webpack-bundle-analyzer dist/my-app/browser/stats.json
 
-# التحقق من الأداء
+# التحقق من Performance
 ng build --configuration production
 lighthouse http://localhost:4000 --view`,
     },

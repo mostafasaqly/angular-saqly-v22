@@ -1,22 +1,22 @@
-// Section 15 — State Management
+﻿// Section 15 — State Management
 export default {
   id: 15,
-  title: 'إدارة الحالة',
+  title: 'State Management',
   titleEn: 'State Management',
   level: 'متوسط – متقدم',
   levelEn: 'Intermediate–Advanced',
-  intro: 'إدارة الحالة هي كيفية تخزين ومشاركة البيانات عبر المكوّنات. Angular v22 يوفر عدة مستويات: حالة محلية للمكوّن (Signals)، حالة مشتركة عبر الخدمات، وNgRx للتطبيقات الكبيرة جداً. هذا القسم يغطي متى تستخدم كل نمط.',
+  intro: 'State Management هي كيفية تخزين ومشاركة البيانات عبر Components. Angular v22 يوفر عدة مستويات: حالة محلية للمكوّن (Signals)، حالة مشتركة عبر Services، وNgRx للتطبيقات الكبيرة جداً. هذا القسم يغطي متى تستخدم كل نمط.',
   introEn: 'State management is how you store and share data across components. Angular v22 provides several levels: local component state (Signals), shared state via services, and NgRx for very large applications. This section covers when to use each pattern.',
 
   lessons: [
-    'أنواع الحالة في Angular',
-    'الحالة المحلية مع Signals',
-    'الحالة المشتركة مع الخدمات',
-    'نمط Store بسيط مع Signals',
-    'التخزين المحلي (localStorage)',
+    'Types of State in Angular',
+    'Local State with Signals',
+    'Shared State via Services',
+    'Simple Store Pattern with Signals',
+    'localStorage Persistence',
     'متى تستخدم NgRx؟',
-    'NgRx Signals — نظرة عامة',
-    'أنماط إدارة الحالة المتقدمة',
+    'NgRx Signals — Overview',
+    'Advanced State Patterns',
   ],
   lessonsEn: [
     'Types of State in Angular',
@@ -131,7 +131,7 @@ export class ThemeStore {
     },
 
     { type: 'heading', text: 'متى تستخدم NgRx؟' },
-    { type: 'paragraph', text: 'الخدمات + Signals كافية في 80-90% من التطبيقات. استخدم NgRx عندما:' },
+    { type: 'paragraph', text: 'Services + Signals كافية في 80-90% من التطبيقات. استخدم NgRx عندما:' },
     {
       type: 'list',
       items: [
@@ -182,7 +182,7 @@ export const BooksStore = signalStore(
     },
     {
       type: 'qa',
-      question: 'ما القاعدة العامة لاختيار نمط إدارة الحالة المناسب في Angular v22؟',
+      question: 'ما القاعدة العامة لاختيار نمط State Management المناسب في Angular v22؟',
       answer: 'ابدأ بـ signal() في المكوّن للحالة المحلية. انتقل إلى خدمة مع Signals عند الحاجة للمشاركة بين مكوّنات متعددة. أضف NgRx أو NgRx Signals فقط عند وجود حالة معقدة جداً، حاجة لـ DevTools، أو فريق كبير يحتاج لعقد موحّد.',
     },
     {

@@ -1,7 +1,7 @@
-// Section 19 — SSR and Hydration
+﻿// Section 19 — SSR and Hydration
 export default {
   id: 19,
-  title: 'SSR والـ Hydration',
+  title: 'SSR and Hydration',
   titleEn: 'SSR and Hydration',
   level: 'متقدم',
   levelEn: 'Advanced',
@@ -10,13 +10,13 @@ export default {
 
   lessons: [
     'ما هو SSR ولماذا نستخدمه؟',
-    'إعداد SSR في Angular v22',
-    'Hydration التلقائية',
-    'Incremental Hydration مع @defer',
-    'الفرق بين بيئة الخادم والمتصفح',
-    'isPlatformBrowser وisPlatformServer',
+    'SSR Setup in Angular v22',
+    'Automatic Hydration',
+    'Incremental Hydration with @defer',
+    'Server vs Browser Environment',
+    'isPlatformBrowser and isPlatformServer',
     'Static Site Generation (SSG/Prerendering)',
-    'أخطاء SSR الشائعة وحلولها',
+    'Common SSR Errors and Fixes',
   ],
   lessonsEn: [
     'What is SSR and Why Use It?',
@@ -109,7 +109,7 @@ export const appConfig: ApplicationConfig = {
   <div class="gallery-skeleton">...</div>
 }
 // الخادم يُولّد HTML
-// المتصفح يُحيي فقط عند تفاعل المستخدم → أداء أفضل`,
+// المتصفح يُحيي فقط عند تفاعل المستخدم → Performance أفضل`,
     },
 
     { type: 'heading', text: 'الفرق بين بيئة الخادم والمتصفح' },

@@ -11,12 +11,12 @@ export default {
   lessons: [
     'ما هو Observable؟',
     'إنشاء Observables',
-    'Operators الأساسية',
-    'map وfilter وtap',
-    'switchMap وmergeMap وconcatMap',
-    'debounceTime وdistinctUntilChanged',
-    'إدارة الاشتراكات',
-    'RxJS مع Signals — toSignal وtoObservable',
+    'Core Operators',
+    'map, filter, tap',
+    'switchMap, mergeMap, concatMap',
+    'debounceTime and distinctUntilChanged',
+    'Subscription Management',
+    'RxJS with Signals — toSignal and toObservable',
   ],
   lessonsEn: [
     'What is an Observable?',

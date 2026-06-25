@@ -1,11 +1,11 @@
-// Section 7 — Signals Fundamentals
+﻿// Section 7 — Signals Fundamentals
 export default {
   id: 7,
   title: 'أساسيات Signals',
   titleEn: 'Signals Fundamentals',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'Signals هي المفهوم الأهم في Angular الحديث. إنها تستبدل كشف التغييرات المبني على Zone.js بأساسي تفاعلي دقيق — عندما تتغير قيمة Signal، فقط المكوّنات والحسابات التي تعتمد عليها تُحدَّث. هذا القسم يبني فهماً عميقاً للـ Signals من الصفر.',
+  intro: 'Signals هي المفهوم الأهم في Angular الحديث. إنها تستبدل Change Detection المبني على Zone.js بأساسي تفاعلي دقيق — عندما تتغير قيمة Signal، فقط Components والحسابات التي تعتمد عليها تُحدَّث. هذا القسم يبني فهماً عميقاً للـ Signals من الصفر.',
   introEn: 'Signals are the single most important concept in modern Angular. They replace Zone.js-based change detection with a precise, reactive primitive — when a Signal\'s value changes, only the components and computations that depend on it update. This section builds a deep understanding of Signals from scratch.',
 
   lessons: [
@@ -15,8 +15,8 @@ export default {
     'تحديث Signals',
     'computed Signals',
     'effect',
-    'Signals مقابل RxJS',
-    'أفضل ممارسات Signals',
+    'Signals vs RxJS',
+    'Signals Best Practices',
   ],
   lessonsEn: [
     'What are Signals?',
@@ -74,7 +74,7 @@ const status = signal<Status>('idle');
 const items = signal<string[]>([]);
 const user  = signal<{ name: string; email: string } | null>(null);
 
-// في الخدمات — Pattern الموصى به
+// في Services — Pattern الموصى به
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _user = signal<User | null>(null);
@@ -199,7 +199,7 @@ double = computed(() => this.count() * 2);  // صحيح`,
       items: [
         'Signals: مزامن، إدارة حالة UI، سهل الاستخدام، لا يحتاج unsubscribe',
         'RxJS: لاتزامني، تدفقات أحداث، عمليات معقدة (debounce، switchMap، retry)',
-        'استخدم Signals لحالة المكوّنات والخدمات وما يُعرض في القوالب',
+        'استخدم Signals لحالة Components وServices وما يُعرض في القوالب',
         'استخدم RxJS للـ HTTP، WebSockets، والأحداث المعقدة',
         'toSignal() لتحويل Observable إلى Signal للقوالب',
         'toObservable() لتحويل Signal إلى Observable لعمليات RxJS',

@@ -1,22 +1,22 @@
-// Section 18 — Performance and Optimization
+﻿// Section 18 — Performance and Optimization
 export default {
   id: 18,
-  title: 'الأداء والتحسين',
+  title: 'Performance and Optimization',
   titleEn: 'Performance and Optimization',
   level: 'متوسط – متقدم',
   levelEn: 'Intermediate–Advanced',
-  intro: 'Angular v22 يأتي بأداء ممتاز افتراضياً بفضل Signals وZoneless. هذا القسم يغطي أبرز تقنيات تحسين الأداء: OnPush، Lazy Loading، التحميل المؤجل للصور، ودمج Profiler لقياس الأداء.',
+  intro: 'Angular v22 يأتي بPerformance ممتاز افتراضياً بفضل Signals وZoneless. هذا القسم يغطي أبرز تقنيات تحسين Performance: OnPush، Lazy Loading، التحميل المؤجل للصور، ودمج Profiler لقياس Performance.',
   introEn: 'Angular v22 delivers excellent performance by default thanks to Signals and Zoneless mode. This section covers the top performance optimization techniques: OnPush, Lazy Loading, deferred image loading, and using the Profiler to measure performance.',
 
   lessons: [
-    'لماذا Signals تُحسّن الأداء؟',
+    'لماذا Signals تُحسّن Performance؟',
     'ChangeDetectionStrategy.OnPush',
     'Zoneless Angular (provideZonelessChangeDetection)',
-    'Lazy Loading للمكوّنات والمسارات',
-    '@defer — التحميل المؤجل للمكوّنات',
-    'NgOptimizedImage للصور',
-    'trackBy وعمليات @for الفعّالة',
-    'قياس الأداء بأدوات المتصفح',
+    'Lazy Loading Components and Routes',
+    '@defer — Deferred Component Loading',
+    'NgOptimizedImage for Images',
+    'trackBy and Efficient @for',
+    'Measuring Performance with Browser Tools',
   ],
   lessonsEn: [
     'Why Signals Improve Performance',
@@ -30,21 +30,21 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'لماذا Signals تُحسّن الأداء؟' },
-    { type: 'paragraph', text: 'في Angular القديمة، Zone.js يُشغّل كشف التغييرات على كل الشجرة عند أي حدث. مع Signals:' },
+    { type: 'heading', text: 'لماذا Signals تُحسّن Performance؟' },
+    { type: 'paragraph', text: 'في Angular القديمة، Zone.js يُشغّل Change Detection على كل الشجرة عند أي حدث. مع Signals:' },
     {
       type: 'list',
       items: [
-        'كشف التغييرات يحدث فقط في المكوّنات التي تقرأ Signal تغيّرت قيمتها',
+        'Change Detection يحدث فقط في Components التي تقرأ Signal تغيّرت قيمتها',
         'لا حاجة لـ markForCheck() أو detectChanges() — الإطار يتكفل بكل شيء',
         'مع provideZonelessChangeDetection()، تتخلص من Zone.js كلياً',
-        'computed() يُعيد حساب قيمته فقط عند تغيير أحد المدخلات',
-        'النتيجة: أداء أسرع بكثير في التطبيقات الكبيرة',
+        'computed() يُعيد حساب قيمته فقط عند تغيير أحد Inputs',
+        'النتيجة: Performance أسرع بكثير في التطبيقات الكبيرة',
       ],
     },
 
     { type: 'heading', text: 'ChangeDetectionStrategy.OnPush' },
-    { type: 'paragraph', text: 'OnPush يخبر Angular: "تحقق من هذا المكوّن فقط عند تغيير المدخلات أو حدوث حدث داخله أو إشارة Signal." القاعدة: ضعه على كل مكوّن.' },
+    { type: 'paragraph', text: 'OnPush يخبر Angular: "تحقق من هذا المكوّن فقط عند تغيير Inputs أو حدوث حدث داخله أو إشارة Signal." القاعدة: ضعه على كل مكوّن.' },
     {
       type: 'code',
       code: `import { Component, ChangeDetectionStrategy, input, signal } from '@angular/core';

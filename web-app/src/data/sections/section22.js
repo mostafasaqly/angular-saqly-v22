@@ -1,22 +1,22 @@
-// Section 22 — Project: Admin Dashboard
+﻿// Section 22 — Project: Admin Dashboard
 export default {
   id: 22,
-  title: 'مشروع: لوحة تحكم إدارية',
+  title: 'مشروع — Admin Dashboard',
   titleEn: 'Project: Admin Dashboard',
   level: 'متوسط – متقدم',
   levelEn: 'Intermediate–Advanced',
-  intro: 'بناء لوحة تحكم إدارية كاملة خطوة بخطوة في Angular v22. ستبني: هيكل المشروع، المصادقة، التوجيه المحمي، جدول بيانات مع فلترة وترتيب، نماذج CRUD، وإدارة حالة مركزية بـ Signals.',
+  intro: 'بناء لوحة تحكم إدارية كاملة خطوة بخطوة في Angular v22. ستبني: هيكل المشروع، Authentication، Routing المحمي، جدول بيانات مع فلترة وترتيب، نماذج CRUD، وإدارة حالة مركزية بـ Signals.',
   introEn: 'Build a complete admin dashboard step by step in Angular v22. You will build: project structure, authentication, protected routing, a data table with filtering and sorting, CRUD forms, and centralized state management with Signals.',
 
   lessons: [
-    'الخطوة 1 — إنشاء المشروع وهيكل الملفات',
-    'الخطوة 2 — إعداد AuthService والـ Guard',
-    'الخطوة 3 — إعداد الـ Routing',
-    'الخطوة 4 — بناء Layout (Sidebar + Topbar)',
-    'الخطوة 5 — إنشاء UsersStore',
-    'الخطوة 6 — بناء جدول البيانات مع الفلترة',
-    'الخطوة 7 — نموذج إضافة / تعديل مستخدم',
-    'الخطوة 8 — ربط كل شيء معاً',
+    'Step 1 — Create Project and File Structure',
+    'Step 2 — AuthService and Guard Setup',
+    'Step 3 — Routing Configuration',
+    'Step 4 — Build Layout (Sidebar + Topbar)',
+    'Step 5 — Create UsersStore',
+    'Step 6 — Data Table with Filtering and Sorting',
+    'Step 7 — Add / Edit User Form',
+    'Step 8 — Wire Everything Together',
   ],
   lessonsEn: [
     'Step 1 — Create Project and File Structure',
@@ -48,7 +48,7 @@ cd admin-dashboard`,
       code: `src/app/
 ├── core/
 │   ├── auth/
-│   │   ├── auth.service.ts      ← خدمة المصادقة
+│   │   ├── auth.service.ts      ← خدمة Authentication
 │   │   └── auth.guard.ts        ← حارس المسار
 │   ├── interceptors/
 │   │   └── auth.interceptor.ts  ← يُضيف JWT لكل طلب
@@ -72,7 +72,7 @@ cd admin-dashboard`,
 
     // ── STEP 2 ──────────────────────────────────────────────
     { type: 'heading', text: 'الخطوة 2 — إعداد AuthService والـ Guard' },
-    { type: 'paragraph', text: 'أنشئ خدمة المصادقة أولاً لأن كل شيء آخر يعتمد عليها.' },
+    { type: 'paragraph', text: 'أنشئ خدمة Authentication أولاً لأن كل شيء آخر يعتمد عليها.' },
     {
       type: 'code',
       code: `// core/auth/auth.service.ts
@@ -132,7 +132,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
     // ── STEP 3 ──────────────────────────────────────────────
     { type: 'heading', text: 'الخطوة 3 — إعداد الـ Routing' },
-    { type: 'paragraph', text: 'عرّف المسارات: صفحة الدخول بدون حماية، وكل صفحات اللوحة محمية بـ authGuard.' },
+    { type: 'paragraph', text: 'عرّف Routes: صفحة الدخول بدون حماية، وكل صفحات اللوحة محمية بـ authGuard.' },
     {
       type: 'code',
       code: `// app.routes.ts
@@ -243,7 +243,7 @@ export class LayoutComponent {
 
     // ── STEP 5 ──────────────────────────────────────────────
     { type: 'heading', text: 'الخطوة 5 — إنشاء UsersStore' },
-    { type: 'paragraph', text: 'الـ Store هو المصدر الوحيد للحقيقة (Single Source of Truth) لبيانات المستخدمين. كل المكوّنات تقرأ منه وتكتب عبره فقط.' },
+    { type: 'paragraph', text: 'الـ Store هو المصدر الوحيد للحقيقة (Single Source of Truth) لبيانات المستخدمين. كل Components تقرأ منه وتكتب عبره فقط.' },
     {
       type: 'code',
       code: `// features/users/users.store.ts
@@ -583,7 +583,7 @@ export class UsersComponent implements OnInit {
     {
       type: 'qa',
       question: 'لماذا ننشئ Store منفصل لكل Feature بدلاً من Store واحد عام؟',
-      answer: 'كل Store مسؤول عن بيانات ميزة واحدة فقط — يُسهّل الاختبار والصيانة. إذا احتجت مشاركة بيانات بين features، أنشئ store مشترك في core/ بدلاً من دمج كل شيء في مكان واحد.',
+      answer: 'كل Store مسؤول عن بيانات ميزة واحدة فقط — يُسهّل Testing والصيانة. إذا احتجت مشاركة بيانات بين features، أنشئ store مشترك في core/ بدلاً من دمج كل شيء في مكان واحد.',
     },
     {
       type: 'qa',

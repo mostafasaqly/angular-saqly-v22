@@ -1,7 +1,7 @@
-// Section 23 — Project: E-Commerce Mini App
+﻿// Section 23 — Project: E-Commerce Mini App
 export default {
   id: 23,
-  title: 'مشروع: تطبيق تجارة إلكترونية',
+  title: 'مشروع — E-Commerce Mini App',
   titleEn: 'Project: E-Commerce Mini App',
   level: 'متوسط – متقدم',
   levelEn: 'Intermediate–Advanced',
@@ -9,14 +9,14 @@ export default {
   introEn: 'Build a complete e-commerce app step by step in Angular v22. You will build: product listing with filtering, product card component, a shopping cart powered by Signals with localStorage persistence, a product detail page, and a checkout page.',
 
   lessons: [
-    'الخطوة 1 — إنشاء المشروع والـ Routing',
-    'الخطوة 2 — تعريف النوع Product والـ CartItem',
-    'الخطوة 3 — بناء CartService',
-    'الخطوة 4 — بطاقة المنتج (ProductCardComponent)',
-    'الخطوة 5 — صفحة المنتجات مع الفلترة',
-    'الخطوة 6 — صفحة تفاصيل المنتج',
-    'الخطوة 7 — أيقونة السلة في الـ Navbar',
-    'الخطوة 8 — صفحة السلة والدفع',
+    'Step 1 — Create Project and Routing',
+    'Step 2 — Define Product and CartItem Types',
+    'Step 3 — Build CartService',
+    'Step 4 — Product Card Component',
+    'Step 5 — Products Page with Filtering',
+    'Step 6 — Product Detail Page',
+    'Step 7 — Cart Icon in Navbar',
+    'Step 8 — Cart Page and Checkout',
   ],
   lessonsEn: [
     'Step 1 — Create Project and Routing',
@@ -32,7 +32,7 @@ export default {
   content: [
     // ── STEP 1 ──────────────────────────────────────────────
     { type: 'heading', text: 'الخطوة 1 — إنشاء المشروع والـ Routing' },
-    { type: 'paragraph', text: 'أنشئ المشروع وعرّف المسارات الأربعة الأساسية للمتجر.' },
+    { type: 'paragraph', text: 'أنشئ المشروع وعرّف Routes الأربعة الأساسية للمتجر.' },
     {
       type: 'code',
       code: `# إنشاء المشروع

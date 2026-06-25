@@ -1,22 +1,22 @@
-// Section 17 — UI, Styling, and Accessibility
+﻿// Section 17 — UI, Styling, and Accessibility
 export default {
   id: 17,
-  title: 'واجهة المستخدم، التصميم، وإمكانية الوصول',
+  title: 'UI, Styling, and Accessibility',
   titleEn: 'UI, Styling, and Accessibility',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'هذا القسم يغطي كيفية بناء واجهات جميلة وقابلة للوصول في Angular v22: تضمين التصميم في المكوّن، CSS Variables للسمات، Angular Material v3، استراتيجيات تغيير القيم، وأفضل ممارسات إمكانية الوصول (a11y).',
+  intro: 'هذا القسم يغطي كيفية بناء واجهات جميلة وقابلة للوصول في Angular v22: تضمين التصميم في المكوّن، CSS Variables للسمات، Angular Material v3، استراتيجيات تغيير القيم، وأفضل ممارسات Accessibility (a11y).',
   introEn: 'This section covers how to build beautiful, accessible UIs in Angular v22: encapsulating styles in components, CSS variables for theming, Angular Material v3, change detection strategies, and accessibility (a11y) best practices.',
 
   lessons: [
-    'تضمين التصميم في المكوّن',
-    'CSS Variables والسمات الديناميكية',
+    'Component Style Encapsulation',
+    'CSS Variables and Dynamic Theming',
     'Angular Material v3',
-    'استراتيجية OnPush وتحسين الأداء',
-    'الأنماط الشرطية (Dynamic Classes)',
-    'أنيماشن Angular',
-    'إمكانية الوصول (a11y)',
-    'دعم RTL والتدويل',
+    'OnPush Strategy and Performance',
+    'Dynamic Classes and Styles',
+    'Angular Animations',
+    'Accessibility (a11y)',
+    'RTL Support and Internationalization',
   ],
   lessonsEn: [
     'Component Style Encapsulation',
@@ -138,7 +138,7 @@ export class DemoComponent {
 }`,
     },
 
-    { type: 'heading', text: 'إمكانية الوصول (a11y)' },
+    { type: 'heading', text: 'Accessibility (a11y)' },
     {
       type: 'list',
       items: [

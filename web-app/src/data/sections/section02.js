@@ -1,4 +1,4 @@
-export default {
+﻿export default {
   id: 2,
   title: 'إعداد بيئة التطوير',
   titleEn: 'Development Environment Setup',
@@ -61,7 +61,7 @@ npx tsc -v
     },
 
     { type: 'heading', text: 'تثبيت Angular CLI' },
-    { type: 'paragraph', text: 'Angular CLI هي أداة سطر الأوامر التي تتحكم في كل شيء: إنشاء المشاريع، توليد المكونات، تشغيل خادم التطوير، والبناء للإنتاج.' },
+    { type: 'paragraph', text: 'Angular CLI هي أداة سطر الأوامر التي تتحكم في كل شيء: إنشاء المشاريع، توليد Components، تشغيل خادم التطوير، والبناء للإنتاج.' },
     {
       type: 'code',
       code: `# تثبيت CLI عالمياً
@@ -181,7 +181,7 @@ export class AppComponent {
         'ESLint (بواسطة Microsoft) — يُعدّها Angular CLI تلقائياً',
         'Prettier — تنسيق الكود',
         'EditorConfig — ثبات المسافات البادئة',
-        'Angular DevTools (Chrome Extension) — يعرض Signal graph وشجرة المكونات',
+        'Angular DevTools (Chrome Extension) — يعرض Signal graph وشجرة Components',
       ],
     },
     { type: 'tip', text: 'ثبّت Angular DevTools كـ Chrome Extension (مش VS Code). ستجد تبويب "Angular" في Chrome DevTools يعرض لك Signal dependencies بشكل مرئي.' },

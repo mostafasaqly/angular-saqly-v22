@@ -1,22 +1,22 @@
-// Section 3 — Angular Fundamentals
+﻿// Section 3 — Angular Fundamentals
 export default {
   id: 3,
-  title: 'أساسيات أنجولار',
+  title: 'أساسيات Angular',
   titleEn: 'Angular Fundamentals',
   level: 'مبتدئ',
   levelEn: 'Beginner',
-  intro: 'بعد إعداد البيئة، حان وقت كتابة كود Angular حقيقي. هذا القسم يغطي اللبنات الأساسية لكل تطبيق Angular: المكوّنات، القوالب، الأنماط، المُحدِّدات (Selectors)، وربط البيانات. ستفهم كيف يحوّل Angular فئة TypeScript وقالب HTML إلى واجهة مستخدم تفاعلية حية.',
+  intro: 'بعد إعداد البيئة، حان وقت كتابة كود Angular حقيقي. هذا القسم يغطي اللبنات الأساسية لكل تطبيق Angular: Components، القوالب، الأنماط، المُحدِّدات (Selectors)، وData Binding. ستفهم كيف يحوّل Angular فئة TypeScript وقالب HTML إلى واجهة مستخدم تفاعلية حية.',
   introEn: 'Now that your environment is ready, it\'s time to write real Angular code. This section covers the core building blocks of every Angular application: components, templates, styles, selectors, and data binding. By the end you\'ll understand how Angular turns a TypeScript class and an HTML template into living, reactive UI.',
 
   lessons: [
     'ما هو Angular؟',
-    'المكوّنات في Angular',
-    'المكوّنات المستقلة (Standalone)',
-    'بيانات التعريف (Component Metadata)',
-    'القوالب (Templates)',
-    'الأنماط (Styles)',
-    'المُحدِّدات (Selectors)',
-    'نظرة عامة على ربط البيانات',
+    'Components في Angular',
+    'Standalone Components',
+    'Component Metadata',
+    'Templates',
+    'Styles',
+    'Selectors',
+    'نظرة عامة على Data Binding',
   ],
   lessonsEn: [
     'What is Angular?',
@@ -32,10 +32,10 @@ export default {
   content: [
     { type: 'heading', text: 'ما هو Angular؟' },
     { type: 'paragraph', text: 'Angular إطار عمل متكامل (Full Framework) من Google لبناء تطبيقات ويب. يأتي بكل شيء جاهزاً: Router، Forms، HTTP Client، DI، وCLI — بدون الحاجة لتجميع مكتبات خارجية.' },
-    { type: 'paragraph', text: 'نموذج Angular الذهني: كل تطبيق Angular هو شجرة من المكوّنات. في القمة يوجد AppComponent، وكل جزء من واجهة المستخدم هو مكوّن فرعي (child) متداخل بداخله.' },
+    { type: 'paragraph', text: 'نموذج Angular الذهني: كل تطبيق Angular هو شجرة من Components. في القمة يوجد AppComponent، وكل جزء من واجهة المستخدم هو مكوّن فرعي (child) متداخل بداخله.' },
     { type: 'tip', text: 'Angular v22 في جملة واحدة: إطار عمل signal-first، zoneless، standalone-by-default — حيث كل مكوّن جديد يستخدم OnPush ويتفاعل مع التغييرات عبر Signals.' },
 
-    { type: 'heading', text: 'المكوّنات في Angular' },
+    { type: 'heading', text: 'Components في Angular' },
     { type: 'paragraph', text: 'المكوّن هو اللبنة الأساسية في Angular. كل مكوّن له ثلاثة أجزاء: فئة TypeScript (المنطق والحالة)، قالب HTML (ما يراه المستخدم)، وأنماط CSS (التصميم المحدد للمكوّن).' },
     {
       type: 'code',
@@ -55,9 +55,9 @@ export class GreetingComponent {
   name = signal('Angular');
 }`,
     },
-    { type: 'tip', text: 'لاحظ signal() بدلاً من المتغيرات العادية — هذا هو أسلوب Angular v22 لإدارة الحالة التفاعلية.' },
+    { type: 'tip', text: 'لاحظ signal() بدلاً من المتغيرات العادية — هذا هو أسلوب Angular v22 لState Management التفاعلية.' },
 
-    { type: 'heading', text: 'المكوّنات المستقلة (Standalone)' },
+    { type: 'heading', text: 'Components المستقلة (Standalone)' },
     { type: 'paragraph', text: 'قبل Angular v15، كان كل مكوّن يحتاج إلى NgModule. في Angular v22، standalone هو الطريقة الوحيدة — المكوّن يُعلن عن اعتمادياته مباشرةً في decorator @Component.' },
     {
       type: 'code',
@@ -100,13 +100,13 @@ export class UserCardComponent { ... }`,
       code: `<!-- استيفاء النص -->
 <p>{{ title() }}</p>
 
-<!-- ربط الخاصية -->
+<!-- Property Binding -->
 <img [src]="imageUrl()" [alt]="imageAlt()" />
 
-<!-- ربط الحدث -->
+<!-- Event Binding -->
 <button (click)="handleClick()">اضغط هنا</button>
 
-<!-- التحكم في التدفق -->
+<!-- Control Flow -->
 @if (isLoggedIn()) {
   <p>أهلاً، {{ user().name }}!</p>
 } @else {
@@ -150,21 +150,21 @@ export class UserCardComponent { ... }`,
     },
     { type: 'tip', text: 'استخدم دائماً بادئة (app- أو اسم المشروع) لتجنب التعارض مع عناصر HTML القياسية.' },
 
-    { type: 'heading', text: 'نظرة عامة على ربط البيانات' },
-    { type: 'paragraph', text: 'ربط البيانات هو الطريقة التي يربط بها Angular فئة TypeScript بقالب HTML. أربعة أنواع:' },
+    { type: 'heading', text: 'نظرة عامة على Data Binding' },
+    { type: 'paragraph', text: 'Data Binding هو الطريقة التي يربط بها Angular فئة TypeScript بقالب HTML. أربعة أنواع:' },
     {
       type: 'list',
       items: [
         '{{ expr }} — استيفاء: من الفئة إلى القالب كنص',
-        '[property]="expr" — ربط الخاصية: من الفئة إلى القالب (DOM property)',
-        '(event)="fn()" — ربط الحدث: من القالب إلى الفئة',
+        '[property]="expr" — Property Binding: من الفئة إلى القالب (DOM property)',
+        '(event)="fn()" — Event Binding: من القالب إلى الفئة',
         '[(ngModel)]="val" — ربط ثنائي الاتجاه: في كلا الاتجاهين',
       ],
     },
     {
       type: 'qa',
-      question: 'ما الفرق الرئيسي بين Angular v22 وإصدارات Angular القديمة من حيث هيكل المكوّنات؟',
-      answer: 'في v22، المكوّنات standalone بالكامل — لا NgModule، لا zone.js. كل مكوّن يُعلن عن اعتمادياته مباشرةً في @Component، ويستخدم OnPush افتراضياً مع Signals للتفاعلية.',
+      question: 'ما الفرق الرئيسي بين Angular v22 وإصدارات Angular القديمة من حيث هيكل Components؟',
+      answer: 'في v22، Components standalone بالكامل — لا NgModule، لا zone.js. كل مكوّن يُعلن عن اعتمادياته مباشرةً في @Component، ويستخدم OnPush افتراضياً مع Signals للتفاعلية.',
     },
     {
       type: 'qa',

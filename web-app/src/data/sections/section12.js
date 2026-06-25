@@ -1,7 +1,7 @@
-// Section 12 — Forms in Angular
+﻿// Section 12 — Forms in Angular
 export default {
   id: 12,
-  title: 'النماذج (Forms)',
+  title: 'Forms في Angular',
   titleEn: 'Forms in Angular',
   level: 'متوسط',
   levelEn: 'Intermediate',
@@ -10,13 +10,13 @@ export default {
 
   lessons: [
     'Signal Forms — الجديد في v22',
-    'التحقق من صحة البيانات (Validators)',
-    'عرض أخطاء التحقق',
+    'Validators',
+    'Showing Validation Errors',
     'Reactive Forms',
     'Template-Driven Forms',
-    'النماذج المتداخلة',
-    'الحقول الديناميكية',
-    'نمط إرسال النماذج',
+    'Nested Forms',
+    'Dynamic Form Fields',
+    'Form Submission Pattern',
   ],
   lessonsEn: [
     'Signal Forms — New in v22',
@@ -193,7 +193,7 @@ export class ContactComponent {
     {
       type: 'qa',
       question: 'ما الفرق بين الأساليب الثلاثة للنماذج في Angular v22؟',
-      answer: 'Signal Forms (مفضّل): مبني على Signals، API نظيف، تكامل تام مع نظام الأنواع. Reactive Forms: يُنشئ نموذج في TypeScript بـ FormBuilder، قابل للاختبار بسهولة، مناسب للنماذج المعقدة. Template-Driven: يُعرّف النموذج في القالب بـ ngModel، أبسط للنماذج الصغيرة، لكن أصعب في الاختبار.',
+      answer: 'Signal Forms (مفضّل): مبني على Signals، API نظيف، تكامل تام مع نظام الأنواع. Reactive Forms: يُنشئ نموذج في TypeScript بـ FormBuilder، قابل للاختبار بسهولة، مناسب للنماذج المعقدة. Template-Driven: يُعرّف النموذج في القالب بـ ngModel، أبسط للنماذج الصغيرة، لكن أصعب في Testing.',
     },
     {
       type: 'qa',

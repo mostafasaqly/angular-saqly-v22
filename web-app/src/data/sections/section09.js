@@ -1,22 +1,22 @@
-// Section 9 — Directives and Pipes
+﻿// Section 9 — Directives and Pipes
 export default {
   id: 9,
-  title: 'الموجّهات والأنابيب',
+  title: 'Directives and Pipes',
   titleEn: 'Directives and Pipes',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'الموجّهات تُضيف سلوكاً على عناصر DOM موجودة. الأنابيب تحوّل القيم في القوالب. هذا القسم يغطي الموجّهات المدمجة (NgClass، NgStyle)، إنشاء موجّهات مخصصة (سمات وهيكلية)، والأنابيب المدمجة والمخصصة.',
+  intro: 'Directives تُضيف سلوكاً على عناصر DOM موجودة. Pipes تحوّل القيم في القوالب. هذا القسم يغطي Directives المدمجة (NgClass، NgStyle)، إنشاء موجّهات مخصصة (سمات وهيكلية)، وPipes المدمجة والمخصصة.',
   introEn: 'Directives add behavior to existing DOM elements. Pipes transform values in templates. This section covers built-in directives (NgClass, NgStyle), creating custom directives (attribute and structural), and built-in and custom pipes.',
 
   lessons: [
-    'ما هي الموجّهات؟',
-    'الموجّهات السمة المدمجة',
-    'إنشاء موجّه سمة مخصص',
-    'الموجّهات الهيكلية المخصصة',
-    'ما هي الأنابيب؟',
-    'الأنابيب المدمجة',
-    'إنشاء أنبوب مخصص',
-    'الأنابيب النقية مقابل غير النقية',
+    'ما هي Directives؟',
+    'Built-in Attribute Directives',
+    'إنشاء Custom Attribute Directive',
+    'Custom Structural Directives',
+    'ما هي Pipes؟',
+    'Built-in Pipes',
+    'إنشاء Custom Pipe',
+    'Pure vs Impure Pipes',
   ],
   lessonsEn: [
     'What are Directives?',
@@ -30,18 +30,18 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'ما هي الموجّهات؟' },
+    { type: 'heading', text: 'ما هي Directives؟' },
     { type: 'paragraph', text: 'الموجّه هو فئة TypeScript مزيّنة بـ @Directive تُضيف سلوكاً أو وظيفة لعنصر DOM أو مكوّن. لا تملك قالباً خاصاً — تُغيّر العنصر الذي تُطبَّق عليه.' },
     {
       type: 'list',
       items: [
         'موجّهات السمة (Attribute) — تُغيّر مظهر أو سلوك عنصر: NgClass، NgStyle، والمخصصة',
-        'الموجّهات الهيكلية (Structural) — تُضيف أو تُزيل عناصر من DOM: *ngIf، *ngFor (الآن @if، @for)',
-        'موجّهات المكوّن (Component) — المكوّنات نفسها هي نوع خاص من الموجّهات',
+        'Structural Directives (Structural) — تُضيف أو تُزيل عناصر من DOM: *ngIf، *ngFor (الآن @if، @for)',
+        'موجّهات المكوّن (Component) — Components نفسها هي نوع خاص من Directives',
       ],
     },
 
-    { type: 'heading', text: 'الموجّهات السمة المدمجة' },
+    { type: 'heading', text: 'Attribute Directives المدمجة' },
     {
       type: 'code',
       code: `import { NgClass, NgStyle } from '@angular/common';
@@ -97,10 +97,10 @@ export class HighlightDirective {
 }
 
 // الاستخدام في القالب:
-// <p appHighlight="lightblue">مرحباً بالموجّهات!</p>`,
+// <p appHighlight="lightblue">مرحباً بDirectives!</p>`,
     },
 
-    { type: 'heading', text: 'ما هي الأنابيب؟' },
+    { type: 'heading', text: 'ما هي Pipes؟' },
     { type: 'paragraph', text: 'الأنبوب هو دالة TypeScript مزيّنة بـ @Pipe تحوّل قيمة إلى تمثيل مختلف في القالب. تُستخدم بصياغة | في التعبيرات.' },
     {
       type: 'code',
@@ -112,7 +112,7 @@ export class HighlightDirective {
 <p>{{ longText() | slice:0:50 }}...</p>`,
     },
 
-    { type: 'heading', text: 'الأنابيب المدمجة' },
+    { type: 'heading', text: 'Pipes المدمجة' },
     {
       type: 'list',
       items: [
@@ -152,11 +152,11 @@ export class TruncatePipe implements PipeTransform {
 // <p>{{ title() | truncate }}</p>  ← يستخدم القيمة الافتراضية 50`,
     },
 
-    { type: 'heading', text: 'الأنابيب النقية مقابل غير النقية' },
+    { type: 'heading', text: 'Pure Pipes مقابل غير النقية' },
     {
       type: 'list',
       items: [
-        'الأنبوب النقي (pure: true، الافتراضي): يُحسب فقط عند تغيير مرجعية المدخل — أداء ممتاز',
+        'الأنبوب النقي (pure: true، الافتراضي): يُحسب فقط عند تغيير مرجعية المدخل — Performance ممتاز',
         'الأنبوب غير النقي (pure: false): يُحسب في كل دورة تغيير — استخدم بحذر شديد',
         'AsyncPipe هو مثال على أنبوب غير نقي — يحتاج التحقق من كل دورة',
         'إذا كنت تحتاج لتحويل مصفوفة تتغير محتوياتها، استخدم computed() بدلاً من أنبوب غير نقي',

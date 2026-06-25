@@ -1,22 +1,22 @@
-// Section 20 — Testing Basics
+﻿// Section 20 — Testing Basics
 export default {
   id: 20,
-  title: 'أساسيات الاختبار',
+  title: 'أساسيات Testing',
   titleEn: 'Testing Basics',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'الاختبار يضمن أن كودك يعمل كما هو متوقع ولا يتوقف عن العمل عند إجراء تغييرات. Angular v22 يُوفر TestBed لاختبار المكوّنات، وboth Jasmine وJest مدعومان. هذا القسم يغطي أنواع الاختبارات وكيفية كتابة اختبارات فعّالة للخدمات والمكوّنات.',
+  intro: 'Testing يضمن أن كودك يعمل كما هو متوقع ولا يتوقف عن العمل عند إجراء تغييرات. Angular v22 يُوفر TestBed لاختبار Components، وboth Jasmine وJest مدعومان. هذا القسم يغطي أنواع Tests وكيفية كتابة اختبارات فعّالة للخدمات وComponents.',
   introEn: 'Testing ensures your code works as expected and does not break when you make changes. Angular v22 provides TestBed for component testing, and both Jasmine and Jest are supported. This section covers test types and how to write effective tests for services and components.',
 
   lessons: [
-    'أنواع الاختبارات',
-    'اختبار الخدمات مع Signals',
-    'اختبار المكوّنات مع TestBed',
-    'محاكاة الاعتماديات (Mocking)',
-    'اختبار القوالب والمستخدم',
-    'اختبار HTTP (HttpClientTestingModule)',
-    'Jest مقابل Jasmine',
-    'أفضل ممارسات الاختبار',
+    'Types of Tests',
+    'Testing Services with Signals',
+    'Testing Components with TestBed',
+    'Mocking Dependencies',
+    'Testing Templates and User Interaction',
+    'Testing HTTP (HttpClientTestingModule)',
+    'Jest vs Jasmine',
+    'Testing Best Practices',
   ],
   lessonsEn: [
     'Types of Tests',
@@ -30,7 +30,7 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'أنواع الاختبارات' },
+    { type: 'heading', text: 'أنواع Tests' },
     {
       type: 'list',
       items: [
@@ -41,7 +41,7 @@ export default {
       ],
     },
 
-    { type: 'heading', text: 'اختبار الخدمات مع Signals' },
+    { type: 'heading', text: 'اختبار Services مع Signals' },
     {
       type: 'code',
       code: `// counter.service.ts
@@ -94,7 +94,7 @@ describe('CounterService', () => {
 });`,
     },
 
-    { type: 'heading', text: 'اختبار المكوّنات مع TestBed' },
+    { type: 'heading', text: 'اختبار Components مع TestBed' },
     {
       type: 'code',
       code: `// greeting.component.ts
@@ -185,7 +185,7 @@ describe('UserProfileComponent', () => {
     {
       type: 'qa',
       question: 'لماذا لا نختبر التنفيذ الداخلي بل السلوك الخارجي؟',
-      answer: 'اختبار التنفيذ الداخلي يجعل الاختبارات هشّة — تنكسر عند إعادة التنظيم حتى لو الوظيفة لم تتغيّر. اختبر ما يراه المستخدم: "عند الضغط على الزر، تظهر رسالة الخطأ" — وليس "عند الضغط على الزر، يتم استدعاء setState بالقيمة X".',
+      answer: 'اختبار التنفيذ الداخلي يجعل Tests هشّة — تنكسر عند إعادة التنظيم حتى لو الوظيفة لم تتغيّر. اختبر ما يراه المستخدم: "عند الضغط على الزر، تظهر رسالة الخطأ" — وليس "عند الضغط على الزر، يتم استدعاء setState بالقيمة X".',
     },
   ],
 

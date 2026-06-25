@@ -1,22 +1,22 @@
-// Section 10 — Services and Dependency Injection
+﻿// Section 10 — Services and Dependency Injection
 export default {
   id: 10,
-  title: 'الخدمات وحقن التبعيات',
+  title: 'Services and Dependency Injection',
   titleEn: 'Services and Dependency Injection',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'الخدمات هي فئات TypeScript تحمل المنطق والبيانات المشتركة عبر المكوّنات. حقن التبعيات (DI) هو النظام الذي يُنشئ ويوفر هذه الخدمات تلقائياً. هذا القسم يغطي إنشاء الخدمات، inject()، نطاقات الخدمة، Signals في الخدمات، وأنماط إدارة الحالة.',
+  intro: 'Services هي فئات TypeScript تحمل المنطق والبيانات المشتركة عبر Components. Dependency Injection (DI) هو النظام الذي يُنشئ ويوفر هذه Services تلقائياً. هذا القسم يغطي إنشاء Services، inject()، نطاقات الخدمة، Signals في Services، وأنماط State Management.',
   introEn: 'Services are TypeScript classes that hold shared logic and data across components. Dependency Injection (DI) is the system that creates and provides these services automatically. This section covers creating services, inject(), service scopes, Signals in services, and state management patterns.',
 
   lessons: [
-    'ما هي الخدمات؟',
-    'إنشاء خدمة',
+    'ما هي Services؟',
+    'إنشاء Service',
     'inject() — الطريقة المفضّلة في v22',
-    'نطاقات الخدمة',
-    'Signals في الخدمات',
-    'نمط إدارة الحالة',
-    'الخدمات الرياضية مقابل حقن التبعيات',
-    'اختبار الخدمات',
+    'Service Scopes',
+    'Signals في Services',
+    'State Management Pattern',
+    'Service Hierarchies and DI',
+    'Testing Services',
   ],
   lessonsEn: [
     'What are Services?',
@@ -30,15 +30,15 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'ما هي الخدمات؟' },
-    { type: 'paragraph', text: 'الخدمة هي فئة TypeScript مزيّنة بـ @Injectable تحمل: المنطق المشترك (HTTP، حسابات، تحويلات)، الحالة المشتركة بين المكوّنات (سلة المشتريات، المستخدم الحالي)، أو التجريد عن واجهات API خارجية.' },
+    { type: 'heading', text: 'ما هي Services؟' },
+    { type: 'paragraph', text: 'الخدمة هي فئة TypeScript مزيّنة بـ @Injectable تحمل: المنطق المشترك (HTTP، حسابات، تحويلات)، الحالة المشتركة بين Components (سلة المشتريات، المستخدم الحالي)، أو التجريد عن واجهات API خارجية.' },
     {
       type: 'list',
       items: [
         'يمكن حقنها في أي مكوّن أو خدمة أخرى',
         'providedIn: "root" → singleton واحد لكامل التطبيق',
         'تفصل المنطق عن طبقة العرض',
-        'قابلة للاختبار بسهولة — يمكن استبدالها بـ mock في الاختبارات',
+        'قابلة للاختبار بسهولة — يمكن استبدالها بـ mock في Tests',
       ],
     },
 
@@ -53,7 +53,7 @@ export default {
 export class CounterService {
   private _count = signal(0);
 
-  // كشف للقراءة فقط — المكوّنات لا يمكنها التعديل مباشرةً
+  // كشف للقراءة فقط — Components لا يمكنها التعديل مباشرةً
   readonly count = this._count.asReadonly();
   readonly double = computed(() => this._count() * 2);
 
@@ -68,7 +68,7 @@ export class CounterService {
     },
 
     { type: 'heading', text: 'inject() — الطريقة المفضّلة في v22' },
-    { type: 'paragraph', text: 'في Angular v22، inject() هو الطريقة المفضّلة لحقن التبعيات بدلاً من constructor injection.' },
+    { type: 'paragraph', text: 'في Angular v22، inject() هو الطريقة المفضّلة لDependency Injection بدلاً من constructor injection.' },
     {
       type: 'code',
       code: `import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
@@ -93,8 +93,8 @@ export class CounterComponent {
     },
     { type: 'tip', text: 'inject() يمكن استخدامه في أي سياق حقن نشط: حقل الفئة، constructor، و في Angular v22 أيضاً داخل effect() وcomputed() وغيرها.' },
 
-    { type: 'heading', text: 'Signals في الخدمات' },
-    { type: 'paragraph', text: 'الخدمات مع Signals هي نمط إدارة الحالة المفضّل في Angular v22 للتطبيقات المتوسطة والكبيرة.' },
+    { type: 'heading', text: 'Signals في Services' },
+    { type: 'paragraph', text: 'Services مع Signals هي نمط State Management المفضّل في Angular v22 للتطبيقات المتوسطة والكبيرة.' },
     {
       type: 'code',
       code: `import { Injectable, signal, computed, effect } from '@angular/core';
@@ -156,13 +156,13 @@ export class CartService {
       items: [
         'providedIn: "root" — singleton عالمي، نسخة واحدة لكامل التطبيق (الأكثر شيوعاً)',
         'providers: [MyService] في @Component — نسخة محلية للمكوّن وأبنائه',
-        'providers: [...] في التوجيه — نسخة خاصة لكل مسار',
+        'providers: [...] في Routing — نسخة خاصة لكل مسار',
         'لا توجد طريقة لـ "feature module scope" في standalone — استخدم route providers',
       ],
     },
 
-    { type: 'heading', text: 'نمط إدارة الحالة' },
-    { type: 'paragraph', text: 'الخدمات + Signals = إدارة حالة بسيطة وقوية لمعظم التطبيقات. لا تحتاج NgRx إلا عند التعقيد الشديد.' },
+    { type: 'heading', text: 'نمط State Management' },
+    { type: 'paragraph', text: 'Services + Signals = إدارة حالة بسيطة وقوية لمعظم التطبيقات. لا تحتاج NgRx إلا عند التعقيد الشديد.' },
     {
       type: 'code',
       code: `// ✅ نمط موصى به: خدمة بسيطة مع Signals
@@ -192,7 +192,7 @@ export class HeaderComponent {
     {
       type: 'qa',
       question: 'ما الفرق بين providedIn: "root" وإضافة الخدمة في providers مكوّن؟',
-      answer: 'providedIn: "root" يُنشئ singleton واحداً يُشاركه كامل التطبيق — جميع المكوّنات تحصل على نفس النسخة. إضافة الخدمة في providers مكوّن يُنشئ نسخة جديدة مستقلة للمكوّن وأبنائه — تُدمَّر مع دمار المكوّن. مثالي لخدمات تحتاج حالة محلية.',
+      answer: 'providedIn: "root" يُنشئ singleton واحداً يُشاركه كامل التطبيق — جميع Components تحصل على نفس النسخة. إضافة الخدمة في providers مكوّن يُنشئ نسخة جديدة مستقلة للمكوّن وأبنائه — تُدمَّر مع دمار المكوّن. مثالي لخدمات تحتاج حالة محلية.',
     },
     {
       type: 'qa',

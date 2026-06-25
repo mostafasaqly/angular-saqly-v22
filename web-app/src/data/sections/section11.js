@@ -1,22 +1,22 @@
-// Section 11 — Routing
+﻿// Section 11 — Routing
 export default {
   id: 11,
-  title: 'التوجيه (Routing)',
+  title: 'Routing',
   titleEn: 'Routing',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'التوجيه هو نظام Angular للتنقل بين الصفحات على جانب العميل. هذا القسم يغطي إعداد المسارات، router-outlet، routerLink، معاملات المسار مع input()، المسارات الفرعية، التحميل الكسول (Lazy Loading)، حراس المسار، وNavigation API الجديد.',
+  intro: 'Routing هو نظام Angular للتنقل بين الصفحات على جانب العميل. هذا القسم يغطي إعداد Routes، router-outlet، routerLink، معاملات المسار مع input()، Routes الفرعية، Lazy Loading (Lazy Loading)، Route Guards، وNavigation API الجديد.',
   introEn: 'Routing is Angular\'s system for client-side navigation between pages. This section covers route setup, router-outlet, routerLink, route params with input(), child routes, lazy loading (loadComponent vs loadChildren), route guards, and the new Navigation API.',
 
   lessons: [
-    'إعداد المسارات الأساسية',
+    'Basic Route Setup',
     'router-outlet وrouterLink',
-    'معاملات المسار مع input()',
-    'معاملات الاستعلام (Query Params)',
-    'المسارات الفرعية',
-    'التحميل الكسول (Lazy Loading)',
-    'حراس المسار (Route Guards)',
-    'Navigation API وتأثيرات الانتقال',
+    'Route Parameters with input()',
+    'Query Parameters',
+    'Child Routes',
+    'Lazy Loading',
+    'Route Guards',
+    'Navigation API and View Transitions',
   ],
   lessonsEn: [
     'Basic Route Setup',
@@ -30,7 +30,7 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'إعداد المسارات الأساسية' },
+    { type: 'heading', text: 'إعداد Routes الأساسية' },
     {
       type: 'code',
       code: `// app.routes.ts
@@ -73,7 +73,7 @@ export const appConfig = {
   ]
 };`,
     },
-    { type: 'tip', text: 'withComponentInputBinding() يُمكّن ربط معاملات المسار (params) تلقائياً بـ input() في المكوّنات — لا تحتاج لـ ActivatedRoute يدوياً.' },
+    { type: 'tip', text: 'withComponentInputBinding() يُمكّن ربط معاملات المسار (params) تلقائياً بـ input() في Components — لا تحتاج لـ ActivatedRoute يدوياً.' },
 
     { type: 'heading', text: 'router-outlet وrouterLink' },
     {
@@ -136,8 +136,8 @@ export class ProductDetailComponent {
 }`,
     },
 
-    { type: 'heading', text: 'التحميل الكسول (Lazy Loading)' },
-    { type: 'paragraph', text: 'التحميل الكسول يقسم حزمة التطبيق إلى أجزاء. الأجزاء تُحمَّل فقط عندما يتنقل المستخدم للمسار المعني — تقليل حجم الحزمة الأولية.' },
+    { type: 'heading', text: 'Lazy Loading (Lazy Loading)' },
+    { type: 'paragraph', text: 'Lazy Loading يقسم حزمة التطبيق إلى أجزاء. الأجزاء تُحمَّل فقط عندما يتنقل المستخدم للمسار المعني — تقليل حجم الحزمة الأولية.' },
     {
       type: 'code',
       code: `// loadComponent: لتحميل مكوّن واحد كسولاً
@@ -167,7 +167,7 @@ export const adminRoutes: Routes = [
 ];`,
     },
 
-    { type: 'heading', text: 'حراس المسار (Route Guards)' },
+    { type: 'heading', text: 'Route Guards (Route Guards)' },
     {
       type: 'code',
       code: `// auth.guard.ts
@@ -189,7 +189,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   });
 };
 
-// تطبيق الحارس في المسارات
+// تطبيق الحارس في Routes
 {
   path: 'profile',
   loadComponent: () => import('./profile/profile.component')
@@ -204,7 +204,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     },
     {
       type: 'qa',
-      question: 'ما الفرق بين loadComponent وloadChildren في التوجيه الكسول؟',
+      question: 'ما الفرق بين loadComponent وloadChildren في Routing الكسول؟',
       answer: 'loadComponent يُحمّل مكوّناً واحداً كسولاً — مناسب لصفحة مستقلة. loadChildren يُحمّل ملف مسارات كامل كسولاً — مناسب لقسم كامل من التطبيق (مثل /admin) بمسارات فرعية متعددة.',
     },
   ],

@@ -1,22 +1,22 @@
-// Section 16 — Authentication and Guards
+﻿// Section 16 — Authentication and Guards
 export default {
   id: 16,
-  title: 'المصادقة والحماية',
+  title: 'Authentication and Guards',
   titleEn: 'Authentication and Guards',
   level: 'متوسط – متقدم',
   levelEn: 'Intermediate–Advanced',
-  intro: 'المصادقة هي عملية التحقق من هوية المستخدم. هذا القسم يغطي تنفيذ JWT Authentication في Angular v22: تسجيل الدخول، حفظ التوكن، حراس المسار، التحكم في الوصول بناءً على الأدوار، وتسجيل الخروج.',
+  intro: 'Authentication هي عملية التحقق من هوية المستخدم. هذا القسم يغطي تنفيذ JWT Authentication في Angular v22: تسجيل الدخول، حفظ التوكن، Route Guards، التحكم في الوصول بناءً على الأدوار، وتسجيل الخروج.',
   introEn: 'Authentication is the process of verifying who a user is. This section covers implementing JWT Authentication in Angular v22: login, token storage, route guards, role-based access control, and logout.',
 
   lessons: [
-    'مفهوم JWT Authentication',
-    'خدمة المصادقة (AuthService)',
-    'نموذج تسجيل الدخول',
-    'حفظ التوكن بأمان',
-    'حارس المصادقة (authGuard)',
-    'التحكم في الوصول بناءً على الأدوار',
-    'تسجيل الخروج',
-    'تجديد التوكن تلقائياً',
+    'JWT Authentication Concept',
+    'AuthService',
+    'Login Form',
+    'Secure Token Storage',
+    'authGuard',
+    'Role-Based Access Control',
+    'Logout',
+    'Automatic Token Refresh',
   ],
   lessonsEn: [
     'JWT Authentication Concept',
@@ -39,11 +39,11 @@ export default {
         '2. الـ API يُرجع JWT token (سلسلة مشفّرة)',
         '3. Angular يحفظ التوكن (localStorage أو sessionStorage)',
         '4. كل طلب HTTP يُرسل التوكن في Authorization header',
-        '5. عند انتهاء صلاحية التوكن، Angular يُعيد التوجيه لصفحة الدخول',
+        '5. عند انتهاء صلاحية التوكن، Angular يُعيد Routing لصفحة الدخول',
       ],
     },
 
-    { type: 'heading', text: 'خدمة المصادقة (AuthService)' },
+    { type: 'heading', text: 'خدمة Authentication (AuthService)' },
     {
       type: 'code',
       code: `import { Injectable, signal, computed, inject } from '@angular/core';
@@ -113,14 +113,14 @@ export class AuthService {
 }`,
     },
 
-    { type: 'heading', text: 'حارس المصادقة (authGuard)' },
+    { type: 'heading', text: 'حارس Authentication (authGuard)' },
     {
       type: 'code',
       code: `import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-// حارس المصادقة — يمنع الوصول لغير المسجّلين
+// حارس Authentication — يمنع الوصول لغير المسجّلين
 export const authGuard: CanActivateFn = (route, state) => {
   const auth   = inject(AuthService);
   const router = inject(Router);
@@ -146,7 +146,7 @@ export const adminGuard: CanActivateFn = () => {
   return router.createUrlTree(['/forbidden']);
 };
 
-// تطبيقهما في المسارات:
+// تطبيقهما في Routes:
 export const routes: Routes = [
   {
     path: 'dashboard',
@@ -197,13 +197,13 @@ hasAnyRole(roles: string[]): boolean {
     },
     {
       type: 'qa',
-      question: 'لماذا يُعاد التوجيه لرابط /login مع returnUrl كمعامل استعلام؟',
-      answer: 'بعد تسجيل الدخول الناجح، يمكن لـ Angular قراءة returnUrl وإعادة توجيه المستخدم للصفحة التي حاول الوصول إليها أصلاً — تجربة مستخدم أفضل بكثير من إعادة التوجيه الدائم للرئيسية.',
+      question: 'لماذا يُعاد Routing لرابط /login مع returnUrl كمعامل استعلام؟',
+      answer: 'بعد تسجيل الدخول الناجح، يمكن لـ Angular قراءة returnUrl وإعادة توجيه المستخدم للصفحة التي حاول الوصول إليها أصلاً — تجربة مستخدم أفضل بكثير من إعادة Routing الدائم للرئيسية.',
     },
     {
       type: 'qa',
       question: 'ما الفرق بين حارس CanActivateFn وCanMatchFn؟',
-      answer: 'CanActivateFn يُشغَّل عند التنقل لمسار — يمكنه إعادة التوجيه. CanMatchFn يُشغَّل قبل أن يُحمَّل المسار — يُقرر هل يُطابَق هذا المسار أصلاً (يُستخدم لمسارات متعددة بنفس الـ path لكن قواعد مختلفة).',
+      answer: 'CanActivateFn يُشغَّل عند التنقل لمسار — يمكنه إعادة Routing. CanMatchFn يُشغَّل قبل أن يُحمَّل المسار — يُقرر هل يُطابَق هذا المسار أصلاً (يُستخدم لمسارات متعددة بنفس الـ path لكن قواعد مختلفة).',
     },
   ],
 

@@ -1,22 +1,22 @@
-// Section 4 — Templates and Binding
+﻿// Section 4 — Templates and Binding
 export default {
   id: 4,
-  title: 'القوالب والربط',
+  title: 'Templates and Binding',
   titleEn: 'Templates and Binding',
   level: 'مبتدئ – متوسط',
   levelEn: 'Beginner–Intermediate',
-  intro: 'هذا القسم يغوص عميقاً في كل آلية ربط في لغة قوالب Angular: الاستيفاء، ربط الخاصية، ربط الحدث، الربط الثنائي، متغيرات مرجع القالب، ربط الفئة، ربط النمط، وربط الخاصية. بعد هذا القسم ستقدر تربط أي بيانات بأي جزء من واجهة المستخدم.',
+  intro: 'هذا القسم يغوص عميقاً في كل آلية ربط في لغة قوالب Angular: Interpolation، Property Binding، Event Binding، Two-Way Binding، Template Reference Variables، Class Binding، Style Binding، وProperty Binding. بعد هذا القسم ستقدر تربط أي بيانات بأي جزء من واجهة المستخدم.',
   introEn: 'This section covers every binding mechanism in Angular\'s template language — interpolation, property binding, event binding, two-way binding, template reference variables, class binding, style binding, and attribute binding — with real examples and the rules that govern each one.',
 
   lessons: [
-    'الاستيفاء {{ }} Interpolation',
-    'ربط الخاصية [property]',
-    'ربط الحدث (event)',
-    'الربط الثنائي [( )]',
-    'متغيرات مرجع القالب #ref',
-    'ربط الفئة [class]',
-    'ربط النمط [style]',
-    'ربط المعامل [attr]',
+    'Interpolation {{ }}',
+    'Property Binding [property]',
+    'Event Binding (event)',
+    'Two-Way Binding [( )]',
+    'Template Reference Variables #ref',
+    'Class Binding [class]',
+    'Style Binding [style]',
+    'Attribute Binding [attr]',
   ],
   lessonsEn: [
     'Interpolation {{ }}',
@@ -30,8 +30,8 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'الاستيفاء {{ }} Interpolation' },
-    { type: 'paragraph', text: 'الاستيفاء يُضمّن تعبير TypeScript في القالب كنص. الصياغة المزدوجة {{ }} تخبر Angular بتقييم التعبير وتحويل النتيجة إلى نص.' },
+    { type: 'heading', text: 'Interpolation {{ }} Interpolation' },
+    { type: 'paragraph', text: 'Interpolation يُضمّن تعبير TypeScript في القالب كنص. الصياغة المزدوجة {{ }} تخبر Angular بتقييم التعبير وتحويل النتيجة إلى نص.' },
     {
       type: 'code',
       code: `@Component({
@@ -49,10 +49,10 @@ export class ProfileComponent {
   today = signal(new Date());
 }`,
     },
-    { type: 'warning', text: 'الاستيفاء interpolation للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
+    { type: 'warning', text: 'Interpolation interpolation للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
 
-    { type: 'heading', text: 'ربط الخاصية [property]' },
-    { type: 'paragraph', text: 'ربط الخاصية يُعيّن خاصية DOM لعنصر HTML أو مدخل (input) لمكوّن. الصياغة: [property]="expression"' },
+    { type: 'heading', text: 'Property Binding [property]' },
+    { type: 'paragraph', text: 'Property Binding يُعيّن خاصية DOM لعنصر HTML أو مدخل (input) لمكوّن. الصياغة: [property]="expression"' },
     {
       type: 'code',
       code: `<!-- خصائص DOM -->
@@ -63,10 +63,10 @@ export class ProfileComponent {
 <!-- مدخلات المكوّن -->
 <app-user-card [user]="currentUser()" [showActions]="canEdit()" />`,
     },
-    { type: 'tip', text: 'الفرق الحاسم: [src]="url" يُعيّن خاصية DOM (صحيح). src="{{ url }}" يُعيّن HTML attribute (قد يسبب وميضاً مؤقتاً). استخدم دائماً ربط الخاصية للقيم الديناميكية.' },
+    { type: 'tip', text: 'الفرق الحاسم: [src]="url" يُعيّن خاصية DOM (صحيح). src="{{ url }}" يُعيّن HTML attribute (قد يسبب وميضاً مؤقتاً). استخدم دائماً Property Binding للقيم الديناميكية.' },
 
-    { type: 'heading', text: 'ربط الحدث (event)' },
-    { type: 'paragraph', text: 'ربط الحدث يستمع لأحداث DOM ويستدعي دالة في الفئة عند وقوعها. الصياغة: (eventName)="handler($event)"' },
+    { type: 'heading', text: 'Event Binding (event)' },
+    { type: 'paragraph', text: 'Event Binding يستمع لأحداث DOM ويستدعي دالة في الفئة عند وقوعها. الصياغة: (eventName)="handler($event)"' },
     {
       type: 'code',
       code: `<button (click)="save()">حفظ</button>
@@ -81,8 +81,8 @@ onInput(event: Event): void {
     },
     { type: 'tip', text: 'Angular يوفر فلترة اختصارية لأحداث لوحة المفاتيح: (keydown.enter)، (keydown.escape)، (keydown.ctrl.s). لا تحتاج لفحص event.key يدوياً.' },
 
-    { type: 'heading', text: 'الربط الثنائي [( )]' },
-    { type: 'paragraph', text: 'الربط الثنائي يجمع ربط الخاصية وربط الحدث في صياغة مختصرة. يُسمّى "الموزة في الصندوق" بسبب شكل الأقواس [()].' },
+    { type: 'heading', text: 'Two-Way Binding [( )]' },
+    { type: 'paragraph', text: 'Two-Way Binding يجمع Property Binding وEvent Binding في صياغة مختصرة. يُسمّى "الموزة في الصندوق" بسبب شكل الأقواس [()].' },
     {
       type: 'code',
       code: `import { FormsModule } from '@angular/forms';
@@ -99,9 +99,9 @@ export class SearchComponent {
   searchQuery = '';   // ngModel يعمل مع الخصائص العادية والـ signals
 }`,
     },
-    { type: 'tip', text: 'في Angular v22، استخدم Signal Forms للنماذج الحقيقية. استخدم ngModel فقط للربط الثنائي البسيط خارج النماذج.' },
+    { type: 'tip', text: 'في Angular v22، استخدم Signal Forms للنماذج الحقيقية. استخدم ngModel فقط للربط الثنائي البسيط خارج Forms.' },
 
-    { type: 'heading', text: 'متغيرات مرجع القالب #ref' },
+    { type: 'heading', text: 'Template Reference Variables #ref' },
     { type: 'paragraph', text: 'متغير مرجع القالب هو اسم مرجعي لعنصر أو مكوّن داخل القالب. تُعلنه بـ #name وتستخدمه في أي مكان آخر بنفس القالب.' },
     {
       type: 'code',
@@ -115,8 +115,8 @@ export class SearchComponent {
 <button (click)="picker.open()">فتح التقويم</button>`,
     },
 
-    { type: 'heading', text: 'ربط الفئة [class]' },
-    { type: 'paragraph', text: 'ربط الفئة يُضيف أو يُزيل فئات CSS ديناميكياً على عنصر DOM.' },
+    { type: 'heading', text: 'Class Binding [class]' },
+    { type: 'paragraph', text: 'Class Binding يُضيف أو يُزيل فئات CSS ديناميكياً على عنصر DOM.' },
     {
       type: 'code',
       code: `<!-- فئة واحدة: تُضاف عندما تكون الحالة true -->
@@ -133,8 +133,8 @@ export class SearchComponent {
 </button>`,
     },
 
-    { type: 'heading', text: 'ربط النمط [style]' },
-    { type: 'paragraph', text: 'ربط النمط يُعيّن أنماط CSS مضمّنة ديناميكياً.' },
+    { type: 'heading', text: 'Style Binding [style]' },
+    { type: 'paragraph', text: 'Style Binding يُعيّن أنماط CSS مضمّنة ديناميكياً.' },
     {
       type: 'code',
       code: `<!-- نمط واحد -->
@@ -147,10 +147,10 @@ export class SearchComponent {
   نص متعدد الأنماط
 </div>`,
     },
-    { type: 'tip', text: 'افضّل ربط الفئة على ربط النمط للحالات المرئية (active, disabled, error). احتفظ بربط النمط للقيم المحسوبة رقمياً (عرض، ارتفاع، شفافية).' },
+    { type: 'tip', text: 'افضّل Class Binding على Style Binding للحالات المرئية (active, disabled, error). احتفظ بStyle Binding للقيم المحسوبة رقمياً (عرض، ارتفاع، شفافية).' },
 
-    { type: 'heading', text: 'ربط المعامل [attr]' },
-    { type: 'paragraph', text: 'بعض معاملات HTML لا تملك خاصية DOM مقابلة. لهذه الحالات، استخدم ربط المعامل بالبادئة attr.' },
+    { type: 'heading', text: 'Attribute Binding [attr]' },
+    { type: 'paragraph', text: 'بعض معاملات HTML لا تملك خاصية DOM مقابلة. لهذه الحالات، استخدم Attribute Binding بالبادئة attr.' },
     {
       type: 'code',
       code: `<!-- معاملات ARIA — لا خاصية DOM مقابلة -->

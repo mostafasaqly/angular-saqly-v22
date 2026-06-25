@@ -1,7 +1,7 @@
-// Section 14 — HTTP and APIs
+﻿// Section 14 — HTTP and APIs
 export default {
   id: 14,
-  title: 'HTTP والـ APIs',
+  title: 'HTTP and APIs',
   titleEn: 'HTTP and APIs',
   level: 'متوسط',
   levelEn: 'Intermediate',
@@ -9,14 +9,14 @@ export default {
   introEn: 'This section covers everything you need to work with APIs: setting up HttpClient in Angular v22, full CRUD operations, httpResource() for declarative data fetching, error handling, and functional interceptors for Authentication headers.',
 
   lessons: [
-    'إعداد HttpClient في v22',
-    'GET — جلب البيانات',
-    'POST، PUT، PATCH، DELETE',
-    'HttpParams وHttpHeaders',
-    'httpResource() — الأسلوب التصريحي',
-    'معالجة الأخطاء',
-    'Interceptors الوظيفية',
-    'نمط ApiService',
+    'HttpClient Setup in v22',
+    'GET — Fetching Data',
+    'POST, PUT, PATCH, DELETE',
+    'HttpParams and HttpHeaders',
+    'httpResource() — Declarative Approach',
+    'Error Handling',
+    'Functional Interceptors',
+    'ApiService Pattern',
   ],
   lessonsEn: [
     'HttpClient Setup in v22',
@@ -46,7 +46,7 @@ export const appConfig: ApplicationConfig = {
   ]
 };`,
     },
-    { type: 'tip', text: 'withFetch() يستخدم Fetch API الحديثة بدلاً من XMLHttpRequest — أداء أفضل، متوافق مع SSR، وأسرع في التشغيل.' },
+    { type: 'tip', text: 'withFetch() يستخدم Fetch API الحديثة بدلاً من XMLHttpRequest — Performance أفضل، متوافق مع SSR، وأسرع في التشغيل.' },
 
     { type: 'heading', text: 'GET — جلب البيانات' },
     {
@@ -159,7 +159,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
-// interceptor المصادقة — يضيف Authorization header
+// interceptor Authentication — يضيف Authorization header
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const token = localStorage.getItem('auth_token');
 

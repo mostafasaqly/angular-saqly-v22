@@ -1,4 +1,4 @@
-// Section 8 — Advanced Signals
+﻿// Section 8 — Advanced Signals
 export default {
   id: 8,
   title: 'Signals المتقدمة',
@@ -9,14 +9,14 @@ export default {
   introEn: 'This section takes Signals deeper: signal inputs (input.required, transforms), model inputs for two-way binding, signal queries (viewChild, contentChild), linkedSignal, and the Resource API for declarative async data fetching.',
 
   lessons: [
-    'مدخلات Signal (Signal Inputs)',
-    'input.required و transforms',
-    'model() — ربط ثنائي الاتجاه',
-    'استعلامات Signal (viewChild، contentChild)',
+    'Signal Inputs',
+    'input.required and Transforms',
+    'model() — Two-Way Binding',
+    'Signal Queries (viewChild, contentChild)',
     'linkedSignal',
     'Resource API — httpResource()',
-    'الأنماط غير المتزامنة مع Signals',
-    'الأخطاء الشائعة في Signals',
+    'Async Patterns with Signals',
+    'Common Signal Mistakes',
   ],
   lessonsEn: [
     'Signal Inputs',
@@ -232,7 +232,7 @@ export class PostsComponent {
         'استخدام effect() للقيم المشتقة — استخدم computed() بدلاً من ذلك',
         'تعديل المصفوفات في مكانها (.push) بدلاً من إنشاء مرجعية جديدة',
         'إنشاء signal() داخل تعبيرات القالب — أنشئها في الفئة',
-        'عدم كشف Signal للقراءة فقط من الخدمات — استخدم .asReadonly()',
+        'عدم كشف Signal للقراءة فقط من Services — استخدم .asReadonly()',
         'قراءة signal داخل ngOnInit بدلاً من computed() للقيم المشتقة',
       ],
     },

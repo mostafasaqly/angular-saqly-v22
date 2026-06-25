@@ -1,7 +1,7 @@
-// Section 24 — Deployment
+﻿// Section 24 — Deployment
 export default {
   id: 24,
-  title: 'النشر والإطلاق',
+  title: 'Deployment',
   titleEn: 'Deployment',
   level: 'متوسط',
   levelEn: 'Intermediate',
@@ -9,13 +9,13 @@ export default {
   introEn: 'This section covers deploying Angular applications to various hosting platforms: Firebase Hosting, Vercel, Netlify, and VPS. It also covers environment configuration, CI/CD setup, and environment variables.',
 
   lessons: [
-    'بناء التطبيق للإنتاج',
-    'المتغيرات البيئية في Angular',
-    'النشر على Firebase Hosting',
-    'النشر على Netlify',
-    'نشر SSR على VPS (Node.js)',
-    'إعداد CI/CD مع GitHub Actions',
-    'قائمة فحص ما قبل الإطلاق',
+    'Building for Production',
+    'Environment Variables in Angular',
+    'Deploy to Firebase Hosting',
+    'Deploy to Netlify',
+    'Deploy SSR to VPS (Node.js)',
+    'CI/CD with GitHub Actions',
+    'Pre-Launch Checklist',
   ],
   lessonsEn: [
     'Building for Production',
@@ -154,7 +154,7 @@ jobs:
       type: 'list',
       items: [
         '✅ ng build --configuration production يُنجح دون أخطاء',
-        '✅ جميع الاختبارات تنجح (npm test)',
+        '✅ جميع Tests تنجح (npm test)',
         '✅ environment.prod.ts يحتوي الروابط الصحيحة للـ API',
         '✅ لا توجد console.log أو debugger في الكود',
         '✅ error interceptor يُعالج حالات 401 و403 و500',

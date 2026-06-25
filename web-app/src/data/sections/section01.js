@@ -1,4 +1,4 @@
-// القسم 1 — مقدمة الكورس
+﻿// القسم 1 — مقدمة الكورس
 export default {
   id: 1,
   title: "مقدمة الكورس",
@@ -62,7 +62,7 @@ export default {
     {
       type: "list",
       items: [
-        "🗂️ المشروع الأول: لوحة تحكم — عرض بيانات API، بحث، إضافة/تعديل/حذف، نماذج Signal Forms، حماية المسارات",
+        "🗂️ المشروع الأول: لوحة تحكم — عرض بيانات API، بحث، إضافة/تعديل/حذف، Forms Signal Forms، حماية Routes",
         "🛒 المشروع الثاني: متجر مصغّر — صفحات منتجات، سلّة مشتريات، إدارة الكميات، تخزين البيانات محلياً",
         "⚡ أمثلة تطبيقية: Signals، HTTP، Routing، Forms، RxJS، SSR، وأكثر",
       ],
@@ -94,36 +94,36 @@ export default {
     },
     {
       type: "paragraph",
-      text: "خريطة الكورس: 25 قسماً — من أساسيات المكوّنات وحتى النشر والاختبارات — مع مشروعَين تطبيقيَّين في النهاية.",
+      text: "خريطة الكورس: 25 قسماً — من أساسيات Components وحتى النشر وTests — مع مشروعَين تطبيقيَّين في النهاية.",
     },
 
     // ===== الدرس 3 =====
     { type: "heading", text: "3. نظرة عامة على أنجولار v22 — عصر Signals" },
     {
       type: "paragraph",
-      text: "أنجولار إطار عمل متكامل (Full Framework) من Google لبناء تطبيقات ويب من المؤسسات. يختلف عن React وVue في أنه يأتي بكل شيء جاهزاً: التوجيه، النماذج، HTTP، الاختبارات، إدارة الحالة — دون الحاجة لمكتبات خارجية.",
+      text: "أنجولار إطار عمل متكامل (Full Framework) من Google لبناء تطبيقات ويب من المؤسسات. يختلف عن React وVue في أنه يأتي بكل شيء جاهزاً: Routing، Forms، HTTP، Tests، State Management — دون الحاجة لمكتبات خارجية.",
     },
     {
       type: "list",
       items: [
-        "المكوّنات (Components) — لبنات البناء الأساسية، مكتوبة بـ TypeScript + HTML + CSS",
-        "Signals — النظام التفاعلي الجديد لإدارة الحالة بكفاءة",
+        "Components (Components) — لبنات البناء الأساسية، مكتوبة بـ TypeScript + HTML + CSS",
+        "Signals — النظام التفاعلي الجديد لState Management بكفاءة",
         "Standalone Components — مكوّنات مستقلة بدون NgModule",
-        "Dependency Injection — حقن التبعيات المدمج",
+        "Dependency Injection — Dependency Injection المدمج",
         "Angular CLI — أداة سطر أوامر قوية تُنشئ وتبني وتختبر",
       ],
     },
     {
       type: "tip",
-      text: "أنجولار v22 يُسمّى 'عصر Signals' لأن (Signals) أصبحت الطريقة الافتراضية لإدارة الحالة في أي مكوّن جديد.",
+      text: "أنجولار v22 يُسمّى 'عصر Signals' لأن (Signals) أصبحت الطريقة الافتراضية لState Management في أي مكوّن جديد.",
     },
 
     // ===== الدرس 4 =====
     { type: "heading", text: "4. الجديد في v22" },
-    { type: "subheading", text: "⚡ Signal Forms — النماذج التفاعلية الجديدة" },
+    { type: "subheading", text: "⚡ Signal Forms — Forms التفاعلية الجديدة" },
     {
       type: "paragraph",
-      text: "المشكلة: النماذج في أنجولار كانت دائماً معقّدة — إما Template-Driven (صعب الاختبار) أو Reactive Forms (كود طويل). Signal Forms تُبسّط كل ذلك.",
+      text: "المشكلة: Forms في أنجولار كانت دائماً معقّدة — إما Template-Driven (صعب Testing) أو Reactive Forms (كود طويل). Signal Forms تُبسّط كل ذلك.",
     },
     {
       type: "paragraph",
@@ -145,12 +145,12 @@ console.log(form.value()); // { name: '', email: '' }`,
     { type: "subheading", text: "🎯 OnPush كاستراتيجية افتراضية" },
     {
       type: "paragraph",
-      text: "في v22، كل مكوّن جديد يُنشأ باستراتيجية OnPush تلقائياً — وهذا يعني أداءً أفضل بدون أي جهد إضافي. الاستراتيجية القديمة 'Default' أُعيدت تسميتها إلى 'Eager'.",
+      text: "في v22، كل مكوّن جديد يُنشأ باستراتيجية OnPush تلقائياً — وهذا يعني Performanceً أفضل بدون أي جهد إضافي. الاستراتيجية القديمة 'Default' أُعيدت تسميتها إلى 'Eager'.",
     },
     { type: "subheading", text: "🌐 Zoneless بالافتراضي" },
     {
       type: "paragraph",
-      text: "المشاريع الجديدة في v22 لا تستخدم Zone.js بشكل افتراضي. هذا يُحسّن الأداء بشكل ملحوظ ويُقلّل حجم الحزمة.",
+      text: "المشاريع الجديدة في v22 لا تستخدم Zone.js بشكل افتراضي. هذا يُحسّن Performance بشكل ملحوظ ويُقلّل حجم الحزمة.",
     },
     {
       type: "list",
@@ -160,7 +160,7 @@ console.log(form.value()); // { name: '', email: '' }`,
         "Zoneless هو الإعداد الافتراضي للمشاريع الجديدة",
         "Resource API مستقرة (resource, rxResource, httpResource)",
         "Selectorless Components — مكوّنات بدون selector (جديد)",
-        "Angular Aria — إمكانية الوصول مدمجة (مستقرة)",
+        "Angular Aria — Accessibility مدمجة (مستقرة)",
         "Navigation API — دعم Web Navigation API في الـ Router",
       ],
     },
@@ -229,7 +229,7 @@ console.log(form.value()); // { name: '', email: '' }`,
       type: "list",
       items: [
         "أنجولار إطار عمل متكامل من Google — TypeScript أولاً",
-        "v22 يُركّز على Signals كطريقة افتراضية لإدارة الحالة",
+        "v22 يُركّز على Signals كطريقة افتراضية لState Management",
         "الجديد: Signal Forms، OnPush بالافتراضي، Zoneless، Resource API",
         "أنجولار مثالي للفرق الكبيرة والمشاريع طويلة الأمد",
         "ستبني مشروعَين كاملَين في نهاية الكورس",

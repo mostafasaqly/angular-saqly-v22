@@ -1,21 +1,21 @@
-// Section 5 — Control Flow in Angular
+﻿// Section 5 — Control Flow in Angular
 export default {
   id: 5,
-  title: 'التحكم في التدفق',
+  title: 'Control Flow في Angular',
   titleEn: 'Control Flow in Angular',
   level: 'مبتدئ – متوسط',
   levelEn: 'Beginner–Intermediate',
-  intro: 'Angular v17 استبدل الموجّهات الهيكلية القديمة (*ngIf، *ngFor، *ngSwitch) بصياغة تحكم مبنية على كتل مباشرة في القالب. الصياغة الجديدة أكثر قابلية للقراءة، وأسرع (المترجم يُحسّنها ثابتياً)، ولا تحتاج لأي استيرادات.',
+  intro: 'Angular v17 استبدل Structural Directives القديمة (*ngIf، *ngFor، *ngSwitch) بصياغة تحكم مبنية على كتل مباشرة في القالب. الصياغة الجديدة أكثر قابلية للقراءة، وأسرع (المترجم يُحسّنها ثابتياً)، ولا تحتاج لأي استيرادات.',
   introEn: 'Angular v17 replaced old structural directives (*ngIf, *ngFor, *ngSwitch) with built-in block-based control flow syntax that lives directly in the template. The new syntax is more readable, faster (the compiler can optimize it statically), and requires no imports.',
 
   lessons: [
-    'مقدمة للتحكم في تدفق Angular',
-    '@if — التحكم الشرطي',
+    'مقدمة لـ Control Flow في Angular',
+    '@if — Conditional Rendering',
     '@else و @else if',
-    '@for — التكرار',
+    '@for — Iteration',
     'track في @for',
-    '@empty — الحالة الفارغة',
-    '@switch — التبديل',
+    '@empty — Empty State',
+    '@switch — Switch Statement',
     'الترحيل من *ngIf و *ngFor',
   ],
   lessonsEn: [
@@ -181,7 +181,7 @@ ng generate @angular/core:control-flow
     {
       type: 'qa',
       question: 'ما الفرق الرئيسي بين @for و *ngFor فيما يخص التتبع (tracking)؟',
-      answer: 'في @for، track مطلوب. في *ngFor، كان trackBy اختيارياً (وإن كان موصى به). مترجم Angular يُجبر التتبع في @for لمنع أخطاء الأداء غير المقصودة.',
+      answer: 'في @for، track مطلوب. في *ngFor، كان trackBy اختيارياً (وإن كان موصى به). مترجم Angular يُجبر التتبع في @for لمنع أخطاء Performance غير المقصودة.',
     },
     {
       type: 'qa',

@@ -1,23 +1,23 @@
-// Section 6 — Components Communication
+﻿// Section 6 — Components Communication
 export default {
   id: 6,
-  title: 'التواصل بين المكوّنات',
+  title: 'تواصل Components',
   titleEn: 'Components Communication',
   level: 'متوسط',
   levelEn: 'Intermediate',
-  intro: 'تطبيقات Angular هي أشجار من المكوّنات. هذا القسم يغطي كل أنماط التواصل التي يوفرها Angular v22: تمرير البيانات للأسفل بـ input()، إرسال الأحداث للأعلى بـ output()، مشاركة الكائنات، إسقاط المحتوى بـ ng-content، والمكوّنات بدون محدِّد (Selectorless).',
+  intro: 'تطبيقات Angular هي أشجار من Components. هذا القسم يغطي كل أنماط التواصل التي يوفرها Angular v22: تمرير البيانات للأسفل بـ input()، إرسال الأحداث للأعلى بـ output()، مشاركة الكائنات، Content Projection بـ ng-content، وComponents بدون محدِّد (Selectorless).',
   introEn: 'Angular applications are trees of components. This section covers every communication pattern Angular v22 provides: passing data down with input(), sending events up with output(), sharing objects, projecting content with ng-content, and the new v22 selectorless components.',
 
   lessons: [
-    'التواصل من الأب إلى الابن',
+    'Parent to Child Communication',
     '@Input وinput() — Signal Input',
-    'التواصل من الابن إلى الأب',
+    'Child to Parent Communication',
     '@Output وoutput()',
     'EventEmitter',
-    'تمرير الكائنات بين المكوّنات',
-    'تركيب المكوّنات',
-    'إسقاط المحتوى بـ ng-content',
-    'المكوّنات بدون محدِّد (Selectorless) — جديد في v22',
+    'Passing Objects Between Components',
+    'Component Composition',
+    'Content Projection with ng-content',
+    'Selectorless Components — جديد في v22',
   ],
   lessonsEn: [
     'Parent to Child Communication',
@@ -86,7 +86,7 @@ export class UserCardComponent {
     },
 
     { type: 'heading', text: 'التواصل من الابن إلى الأب' },
-    { type: 'paragraph', text: 'البيانات تنزل عبر المدخلات، والأحداث ترتفع عبر المخرجات. عندما يحدث شيء في الابن، يُخبر الأب عبر output().' },
+    { type: 'paragraph', text: 'البيانات تنزل عبر Inputs، والأحداث ترتفع عبر Outputs. عندما يحدث شيء في الابن، يُخبر الأب عبر output().' },
     {
       type: 'code',
       code: `// child.component.ts
@@ -133,7 +133,7 @@ quantityChanged = output<number>();
 // <app-qty (quantityChanged)="onQtyChange($event)" />`,
     },
 
-    { type: 'heading', text: 'تمرير الكائنات بين المكوّنات' },
+    { type: 'heading', text: 'تمرير الكائنات بين Components' },
     { type: 'paragraph', text: 'في التطبيقات الحقيقية تُمرّر كائنات كاملة — مستخدمين، منتجات، طلبات. عرّف الواجهات المشتركة في ملف منفصل ليتمكن الأب والابن من استيرادها.' },
     {
       type: 'code',
@@ -157,8 +157,8 @@ export class ProductCardComponent {
     },
     { type: 'warning', text: 'تحديث مهم: OnPush (الافتراضي في v22) يُلاحظ التغييرات فقط عندما تتغير المرجعية. لا تُعدّل الكائنات في مكانها — استبدلها بكائنات جديدة: { ...obj, price: 99 }' },
 
-    { type: 'heading', text: 'إسقاط المحتوى بـ ng-content' },
-    { type: 'paragraph', text: 'المدخلات تُمرّر بيانات، لكن أحياناً تريد تمرير هيكل HTML كامل. هذا هو إسقاط المحتوى بـ <ng-content>.' },
+    { type: 'heading', text: 'Content Projection بـ ng-content' },
+    { type: 'paragraph', text: 'Inputs تُمرّر بيانات، لكن أحياناً تريد تمرير هيكل HTML كامل. هذا هو Content Projection بـ <ng-content>.' },
     {
       type: 'code',
       code: `// card.component.ts
@@ -180,8 +180,8 @@ export class CardComponent {}
 </app-card>`,
     },
 
-    { type: 'heading', text: 'المكوّنات بدون محدِّد (Selectorless) — جديد في v22' },
-    { type: 'paragraph', text: 'في Angular v22، المكوّنات لا تحتاج selector. مكوّن بدون selector لا يمكن استخدامه كعلامة HTML، لكن يمكن استخدامه في التوجيه (Routing) أو NgComponentOutlet.' },
+    { type: 'heading', text: 'Components بدون محدِّد (Selectorless) — جديد في v22' },
+    { type: 'paragraph', text: 'في Angular v22، Components لا تحتاج selector. مكوّن بدون selector لا يمكن استخدامه كعلامة HTML، لكن يمكن استخدامه في Routing (Routing) أو NgComponentOutlet.' },
     {
       type: 'code',
       code: `// لا selector — مكوّن بدون محدِّد
@@ -199,7 +199,7 @@ export class PostDetailComponent {
   body  = input.required<string>();
 }
 
-// يُستخدم في التوجيه بالمرجعية، لا بالعلامة
+// يُستخدم في Routing بالمرجعية، لا بالعلامة
 export const routes: Routes = [
   { path: 'posts/:id', component: PostDetailComponent }
 ];`,
@@ -211,8 +211,8 @@ export const routes: Routes = [
     },
     {
       type: 'qa',
-      question: 'متى تستخدم ng-content بدلاً من المدخلات؟',
-      answer: 'استخدم ng-content عندما تبني مكوّنات "غلاف" قابلة لإعادة الاستخدام — بطاقات، نوافذ حوارية، ألسنة، لوحات — حيث تريد أن يملأ المُستخدم إطار التخطيط بأي محتوى يريده. المدخلات للبيانات، ng-content للهيكل.',
+      question: 'متى تستخدم ng-content بدلاً من Inputs؟',
+      answer: 'استخدم ng-content عندما تبني مكوّنات "غلاف" قابلة لإعادة الاستخدام — بطاقات، نوافذ حوارية، ألسنة، لوحات — حيث تريد أن يملأ المُستخدم إطار التخطيط بأي محتوى يريده. Inputs للبيانات، ng-content للهيكل.',
     },
   ],
 
