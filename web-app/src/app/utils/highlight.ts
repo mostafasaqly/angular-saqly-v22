@@ -23,8 +23,20 @@ function highlightJS(code: string): string {
   }).join('\n');
 }
 
+function applyTokenRegex(html: string): string {
+  // Split on existing <span> tags so we only apply keyword/builtin/number
+  // regex to plain-text segments, never inside already-emitted HTML.
+  const parts = html.split(/(<span[^>]*>.*?<\/span>)/s);
+  return parts.map((part, i) => {
+    if (i % 2 === 1) return part; // inside a span — leave untouched
+    let p = part.replace(KEYWORDS, '<span class="tok-keyword">$1</span>');
+    p = p.replace(BUILTINS, '<span class="tok-builtin">$1</span>');
+    p = p.replace(/\b(\d+(\.\d+)?)\b/g, '<span class="tok-number">$1</span>');
+    return p;
+  }).join('');
+}
+
 function tokenizeLine(line: string): string {
-  // strings first
   let result = '';
   let i = 0;
   while (i < line.length) {
@@ -51,10 +63,7 @@ function tokenizeLine(line: string): string {
     result += escHtml(ch);
     i++;
   }
-  result = result.replace(KEYWORDS, '<span class="tok-keyword">$1</span>');
-  result = result.replace(BUILTINS, '<span class="tok-builtin">$1</span>');
-  result = result.replace(/\b(\d+(\.\d+)?)\b/g, '<span class="tok-number">$1</span>');
-  return result;
+  return applyTokenRegex(result);
 }
 
 function highlightShell(code: string): string {
