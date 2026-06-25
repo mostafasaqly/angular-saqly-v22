@@ -513,7 +513,7 @@ html, body {
   overflow-x: auto;
   font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
   font-size: 13.5px;
-  line-height: 1.75;
+  line-height: 2;
   color: #e6edf3;
   margin: 0;
 }
