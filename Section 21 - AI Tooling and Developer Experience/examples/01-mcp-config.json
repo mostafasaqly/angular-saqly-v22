@@ -1,0 +1,14 @@
+{
+  "_comment": "Angular MCP Server configuration for Claude Code (.claude/mcp.json)",
+  "_docs": "https://angular.dev/tools/mcp",
+  "mcpServers": {
+    "angular": {
+      "command": "ng-mcp",
+      "args": ["--project", "."],
+      "description": "Angular v22 CLI MCP server — provides live project context to AI assistants",
+      "env": {
+        "ANGULAR_MCP_LOG_LEVEL": "warn"
+      }
+    }
+  }
+}

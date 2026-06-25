@@ -338,10 +338,9 @@
 2. Environment Files
 3. Building the App
 4. Deploying to Netlify
-5. Deploying to Vercel
-6. Deploying to Firebase Hosting
-7. GitHub Pages Deployment
-8. Common Deployment Issues
+5. Deploying to Firebase Hosting
+6. GitHub Pages Deployment
+7. Common Deployment Issues
 
 ---
 
