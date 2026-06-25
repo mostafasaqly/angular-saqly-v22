@@ -23,6 +23,18 @@ import { SectionMeta } from '../models/section.model';
             <polygon points="125,100 165,155 85,155" fill="white"/>
           </svg>
           <span>{{ isAr() ? 'كورس أنجولار v22' : 'Angular v22 Course' }}</span>
+          <a class="react-link"
+             href="https://mostafasaqly.github.io/react-saqly-v19/"
+             target="_blank"
+             rel="noopener noreferrer"
+             [title]="isAr() ? 'كورس React' : 'React Course'">
+            <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="8" fill="#61dafb"/>
+              <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#61dafb" stroke-width="5"/>
+              <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#61dafb" stroke-width="5" transform="rotate(60 50 50)"/>
+              <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#61dafb" stroke-width="5" transform="rotate(120 50 50)"/>
+            </svg>
+          </a>
         </div>
         <div class="sidebar-controls">
           <button class="ctrl-btn" (click)="toggleTheme.emit()">

@@ -129,6 +129,28 @@ html, body {
   font-size: 14px;
   font-weight: 700;
   color: var(--primary);
+  flex: 1;
+}
+
+.react-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(97, 218, 251, 0.1);
+  border: 1px solid rgba(97, 218, 251, 0.25);
+  color: #61dafb;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.react-link:hover {
+  background: rgba(97, 218, 251, 0.2);
+  border-color: #61dafb;
+  transform: rotate(20deg) scale(1.1);
 }
 
 .sidebar-controls {
