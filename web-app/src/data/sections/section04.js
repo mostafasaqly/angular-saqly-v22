@@ -9,7 +9,7 @@ export default {
   introEn: 'This section covers every binding mechanism in Angular\'s template language — interpolation, property binding, event binding, two-way binding, template reference variables, class binding, style binding, and attribute binding — with real examples and the rules that govern each one.',
 
   lessons: [
-    'الاستيفاء {{ }}',
+    'الاستيفاء {{ }} Interpolation',
     'ربط الخاصية [property]',
     'ربط الحدث (event)',
     'الربط الثنائي [( )]',
@@ -30,7 +30,7 @@ export default {
   ],
 
   content: [
-    { type: 'heading', text: 'الاستيفاء {{ }}' },
+    { type: 'heading', text: 'الاستيفاء {{ }} Interpolation' },
     { type: 'paragraph', text: 'الاستيفاء يُضمّن تعبير TypeScript في القالب كنص. الصياغة المزدوجة {{ }} تخبر Angular بتقييم التعبير وتحويل النتيجة إلى نص.' },
     {
       type: 'code',
