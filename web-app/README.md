@@ -1,59 +1,95 @@
-# WebApp
+# Angular v22 Course Web App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.
+An interactive course companion app built with Angular v22. Browse all 25 sections of the Angular v22 crash course, track your progress, and read lessons in Arabic or English.
 
-## Development server
+## Live Demo
 
-To start a local development server, run:
+[https://mostafasaqly.github.io/angular-saqly-v22/](https://mostafasaqly.github.io/angular-saqly-v22/)
 
-```bash
-ng serve
+## Features
+
+- 25 course sections with full lesson content
+- Arabic / English language toggle (RTL/LTR)
+- Light / dark theme toggle
+- Per-section progress tracking (persisted in localStorage)
+- Collapsible sidebar with overall progress bar
+- Syntax-highlighted code blocks
+- Lazy-loaded section routes for fast initial load
+- Responsive layout for mobile and desktop
+
+## Tech Stack
+
+- **Angular v22** — standalone components, OnPush change detection, Zoneless
+- **Signals** — `signal`, `computed`, `effect`, `toSignal` for all reactive state
+- **Angular Router** — lazy-loaded routes per section
+- **Vitest** — unit testing
+
+## Project Structure
+
+```
+src/
+└── app/
+    ├── components/
+    │   ├── sidebar.ts          # Navigation sidebar with progress
+    │   ├── lesson-content.ts   # Renders content blocks
+    │   ├── code-block.ts       # Syntax-highlighted code
+    │   └── qa-block.ts         # Expandable Q&A blocks
+    ├── models/
+    │   └── section.model.ts    # Section and ContentBlock interfaces
+    ├── pages/
+    │   └── section-page.ts     # Lazy-loaded section route
+    ├── services/
+    │   └── progress.service.ts # Theme, language, and completion state
+    ├── utils/
+    │   └── highlight.ts        # Code highlighting utility
+    ├── app.routes.ts
+    ├── app.config.ts
+    └── app.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js v22+
+- npm v10+
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Install
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+### Development server
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Open [http://localhost:4200](http://localhost:4200) in your browser. The app reloads automatically on file changes.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Build
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Output goes to `dist/web-app/browser/`.
 
-For end-to-end (e2e) testing, run:
+### Deploy to GitHub Pages
 
 ```bash
-ng e2e
+npm run deploy
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Builds for production with `--base-href /angular-saqly-v22/` and pushes to the `gh-pages` branch.
 
-## Additional Resources
+### Run tests
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm test
+```
+
+## Author
+
+**Mostafa Saqly** — [github.com/mostafasaqly](https://github.com/mostafasaqly)
