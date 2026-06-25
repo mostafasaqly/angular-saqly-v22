@@ -2,42 +2,41 @@
 
   <!-- Mobile topbar -->
   <div class="topbar">
-    <button class="hamburger" (click)="toggleSidebar()" aria-label="فتح القائمة">☰</button>
-    <span class="topbar-title">كورس أنجولار v22</span>
+    <button
+      class="hamburger"
+      (click)="sidebarOpen.update(v => !v)"
+      [attr.aria-label]="progress.isAr() ? 'فتح القائمة' : 'Open menu'"
+    >☰</button>
+    <span class="topbar-title">
+      {{ progress.isAr() ? 'كورس أنجولار v22' : 'Angular v22 Course' }}
+    </span>
   </div>
 
   <!-- Sidebar overlay (mobile) -->
   <div
     class="sidebar-overlay"
     [class.open]="sidebarOpen()"
-    (click)="toggleSidebar()"
+    (click)="sidebarOpen.set(false)"
   ></div>
 
   <!-- Sidebar -->
   <app-sidebar
     [sections]="allSections"
     [activeId]="activeId()"
-    [completed]="completed()"
+    [completed]="progress.completed()"
     [total]="allSections.length"
     [percent]="percent()"
-    [isAr]="isAr()"
-    [theme]="theme()"
+    [isAr]="progress.isAr()"
+    [theme]="progress.theme()"
     [open]="sidebarOpen()"
-    (selectSection)="selectSection($event)"
-    (toggleTheme)="toggleTheme()"
-    (toggleLang)="toggleLang()"
+    (selectSection)="selectSection($event); sidebarOpen.set(false)"
+    (toggleTheme)="progress.toggleTheme()"
+    (toggleLang)="progress.toggleLang()"
   />
 
   <!-- Main -->
   <main class="main-content">
-    <app-lesson-content
-      [section]="activeSection()"
-      [isAr]="isAr()"
-      [completed]="isCompleted()"
-      [note]="currentNote()"
-      (toggleComplete)="toggleComplete()"
-      (noteChange)="onNoteChange($event)"
-    />
+    <router-outlet />
   </main>
 
 </div>
