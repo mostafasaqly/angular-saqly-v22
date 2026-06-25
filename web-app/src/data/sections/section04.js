@@ -49,7 +49,7 @@ export class ProfileComponent {
   today = signal(new Date());
 }`,
     },
-    { type: 'warning', text: 'الاستيفاء للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
+    { type: 'warning', text: 'الاستيفاء interpolation للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
 
     { type: 'heading', text: 'ربط الخاصية [property]' },
     { type: 'paragraph', text: 'ربط الخاصية يُعيّن خاصية DOM لعنصر HTML أو مدخل (input) لمكوّن. الصياغة: [property]="expression"' },
