@@ -49,7 +49,7 @@ export class ProfileComponent {
   today = signal(new Date());
 }`,
     },
-    { type: 'warning', text: 'Interpolation interpolation للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
+    { type: 'warning', text: 'Interpolation للقراءة فقط — لا يمكنك التعيين (count = 5) ولا استخدام new ولا template literals داخله.' },
 
     { type: 'heading', text: 'Property Binding [property]' },
     { type: 'paragraph', text: 'Property Binding يُعيّن خاصية DOM لعنصر HTML أو مدخل (input) لمكوّن. الصياغة: [property]="expression"' },
