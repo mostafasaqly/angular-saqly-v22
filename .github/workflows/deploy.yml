@@ -38,6 +38,9 @@ jobs:
         run: npx ng build --configuration production --base-href /angular-saqly-v22/
         working-directory: web-app
 
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp web-app/dist/web-app/browser/index.html web-app/dist/web-app/browser/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -23,6 +23,16 @@ import { SectionMeta } from '../models/section.model';
             <polygon points="125,100 165,155 85,155" fill="white"/>
           </svg>
           <span>{{ isAr() ? 'كورس أنجولار v22' : 'Angular v22 Course' }}</span>
+          <a class="vue-link"
+             href="https://mostafasaqly.github.io/vue-saqly-v3/#section-1"
+             target="_blank"
+             rel="noopener noreferrer"
+             [title]="isAr() ? 'كورس Vue' : 'Vue Course'">
+            <svg width="20" height="20" viewBox="0 0 261.76 226.69" xmlns="http://www.w3.org/2000/svg">
+              <path d="M161.096 0L130.88 52.503 100.664 0H0l130.88 226.69L261.76 0z" fill="#41b883"/>
+              <path d="M161.096 0L130.88 52.503 100.664 0H52.503l78.377 135.765L209.257 0z" fill="#34495e"/>
+            </svg>
+          </a>
           <a class="react-link"
              href="https://mostafasaqly.github.io/react-saqly-v19/"
              target="_blank"
