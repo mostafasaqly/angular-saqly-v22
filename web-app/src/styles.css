@@ -493,8 +493,9 @@ html, body {
   background: #0d1117;
   border-radius: var(--radius);
   overflow: hidden;
-  direction: ltr;
+  direction: ltr !important;
   text-align: left;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace !important;
 }
 
 .code-block-header {
@@ -509,8 +510,8 @@ html, body {
 .code-lang {
   font-size: 12px;
   font-weight: 600;
-  color: #c9d1d9;
-  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  color: #c9d1d9 !important;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -533,29 +534,34 @@ html, body {
 .code-block pre {
   padding: 16px 18px;
   overflow-x: auto;
-  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace !important;
   font-size: 13.5px;
   line-height: 2;
-  color: #e6edf3;
+  color: #e6edf3 !important;
   margin: 0;
 }
 
+.code-block code,
+.code-block span {
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace !important;
+}
+
 /* Syntax tokens */
-.tok-keyword  { color: #ff7b72; }
-.tok-builtin  { color: #d2a8ff; }
-.tok-string   { color: #a5d6ff; }
-.tok-comment  { color: #6e7681; font-style: italic; }
-.tok-number   { color: #79c0ff; }
-.tok-tag      { color: #7ee787; }
-.tok-attr     { color: #ffa657; }
-.tok-fn       { color: #e6edf3; }
-.tok-punct    { color: #8b949e; }
-.tok-plain    { color: #e6edf3; }
-.tok-sh-cmd   { color: #7ee787; font-weight: bold; }
-.tok-sh-sub   { color: #ffa657; }
-.tok-sh-pkg   { color: #f0e68c; }
-.tok-sh-flag  { color: #79c0ff; }
-.tok-sh-prompt{ color: #6e7681; user-select: none; }
+.tok-keyword  { color: #ff7b72 !important; }
+.tok-builtin  { color: #d2a8ff !important; }
+.tok-string   { color: #a5d6ff !important; }
+.tok-comment  { color: #6e7681 !important; font-style: italic; }
+.tok-number   { color: #79c0ff !important; }
+.tok-tag      { color: #7ee787 !important; }
+.tok-attr     { color: #ffa657 !important; }
+.tok-fn       { color: #e6edf3 !important; }
+.tok-punct    { color: #8b949e !important; }
+.tok-plain    { color: #e6edf3 !important; }
+.tok-sh-cmd   { color: #7ee787 !important; font-weight: bold; }
+.tok-sh-sub   { color: #ffa657 !important; }
+.tok-sh-pkg   { color: #f0e68c !important; }
+.tok-sh-flag  { color: #79c0ff !important; }
+.tok-sh-prompt{ color: #6e7681 !important; user-select: none; }
 
 /* ============================================================
    Q&A BLOCK
