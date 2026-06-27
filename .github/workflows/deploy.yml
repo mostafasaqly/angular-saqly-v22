@@ -35,7 +35,7 @@ jobs:
         working-directory: web-app
 
       - name: Build
-        run: npm run build
+        run: npx ng build --configuration production --base-href /angular-saqly-v22/
         working-directory: web-app
 
       - name: Setup Pages
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web-app/dist
+          path: web-app/dist/web-app/browser
 
   deploy:
     environment:
